@@ -1,16 +1,22 @@
 'use strict';
+const PORT = 3000;
 const path = require('path');
 const express = require('express');
+const app = express();
+const indexPath = path.join(__dirname, 'index.html');
+const publicPath = express.static(path.join(__dirname, 'public'));
+const flashCards = require('./routes/flashCards');
 
-module.exports = {
-  app: function () {
-    const app = express();
-    const indexPath = path.join(__dirname, 'index.html');
-    const publicPath = express.static(path.join(__dirname, 'public'));
+app.use('/public', publicPath);
+app.get('/', function(_, res) {
+    res.sendFile(indexPath);
+});
+app.get('/working', function(_, res) {
+    res.send('working');
+});
 
-    app.use('/public', publicPath);
-    app.get('/', function (_, res) { res.sendFile(indexPath); });
+app.use('/flashcards', flashCards);
 
-    return app;
-  }
-};
+app.listen(PORT, function(){
+    console.log('port',PORT);
+});
