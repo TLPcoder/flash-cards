@@ -4,7 +4,7 @@ exports.seed = function(knex, Promise) {
   return knex('flash_card_deck').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('flash_card_deck').insert([
         {
             field_of_study_id: 1,
             flash_card_deck_name:'Redux'

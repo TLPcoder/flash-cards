@@ -12,6 +12,6 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
     return Promise.all([
-        knex.schema.dropTable('flash_card-deck')
+        knex.schema.dropTable('flash_card_deck')
     ]);
 };
