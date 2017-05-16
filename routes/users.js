@@ -10,6 +10,6 @@ router.get('/', (req,res) => {
 
 router.post('/login', controller.login);
 
-// router.post('/create-user', contoller.createUser);
+router.post('/create-user', controller.createUser);
 
 module.exports = router;
