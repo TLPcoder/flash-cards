@@ -1,9 +1,15 @@
 "use strict";
 const express = require('express');
 const router = express.Router();
-// 
-// router.post('/login', controller.login);
+const controller = require('../controllers/login_controllers');
 //
+
+router.get('/', (req,res) => {
+    res.json('hello');
+});
+
+router.post('/login', controller.login);
+
 // router.post('/create-user', contoller.createUser);
 
-module.exports = {router};
+module.exports = router;

@@ -14,7 +14,7 @@ exports.getFieldOfStudy = (req,res) => {
 };
 
 exports.getFlashCardDeck = (req, res) => {
-    console.log('req.params', req.params.field_of_study_id)
+    console.log('req.params', req.params.field_of_study_id);
     knex('field_of_study')
     .innerJoin('flash_card_deck','field_of_study.field_of_study_id', 'flash_card_deck.field_of_study_id')
     .where('field_of_study.field_of_study_id', req.params.field_of_study_id)
