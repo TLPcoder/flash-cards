@@ -11,4 +11,6 @@ router.get('/flash_card_cards/:flash_card_deck_id', controller.getFlashCards);
 
 router.post('/create_flash_card', controller.postFlashCards);
 
+router.post('/create_flash_card_deck', controller.postFlashCardDeck);
+
 module.exports = router;

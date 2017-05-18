@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const knex = require('../knex');
 var exports = module.exports = {};
 
@@ -50,3 +50,36 @@ exports.postFlashCards = (req, res) => {
         res.json(err);
     });
 };
+
+exports.postFlashCardDeck = (req, res) => {
+    var body = req.body;
+    console.log(body);
+    knex('flash_card_deck')
+    .where('flash_card_deck_name', body.flash_card_deck_name)
+    .where('field_of_study_id', body.field_of_study_id)
+    .then((data) => {
+        if(data.length === 0){
+            createFlashCardDeck(body,res);
+        }else {
+            res.json({
+                newFlashDeck: false,
+                data:data
+            });
+        }
+    });
+};
+
+function createFlashCardDeck(body, res){
+    knex('flash_card_deck')
+    .returning('*')
+    .insert({
+        field_of_study_id: body.field_of_study_id,
+        flash_card_deck_name: body.flash_card_deck_name
+    })
+    .then((data) => {
+        res.json({
+            newFlashDeck: true,
+            data: data
+        });
+    });
+}
