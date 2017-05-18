@@ -9,4 +9,6 @@ router.get('/flash_card_deck/:field_of_study_id', controller.getFlashCardDeck);
 
 router.get('/flash_card_cards/:flash_card_deck_id', controller.getFlashCards);
 
+router.post('/create_flash_card', controller.postFlashCards);
+
 module.exports = router;

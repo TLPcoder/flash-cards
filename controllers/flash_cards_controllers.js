@@ -14,7 +14,6 @@ exports.getFieldOfStudy = (req,res) => {
 };
 
 exports.getFlashCardDeck = (req, res) => {
-    console.log('req.params', req.params.field_of_study_id);
     knex('field_of_study')
     .innerJoin('flash_card_deck','field_of_study.field_of_study_id', 'flash_card_deck.field_of_study_id')
     .where('field_of_study.field_of_study_id', req.params.field_of_study_id)
@@ -33,5 +32,21 @@ exports.getFlashCards = (req,res) => {
         res.json(data);
     }).catch((err) => {
         console.log(err);
+    });
+};
+
+exports.postFlashCards = (req, res) => {
+    var body = req.body;
+    knex('flash_card')
+    .returning('*')
+    .insert({
+        flash_card_deck_id: body.flash_card_deck_id,
+        question:body.question,
+        answer:body.answer
+    }).then((data) => {
+        res.json(data);
+    }).catch((err) => {
+        console.log(err);
+        res.json(err);
     });
 };

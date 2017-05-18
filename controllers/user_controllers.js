@@ -21,7 +21,6 @@ exports.login = (req, res) => {
 };
 
 exports.createUser = (req,res) => {
-    console.log(req.body);
     var body = req.body;
     knex('users')
     .where('users.email', body.email)
@@ -33,11 +32,33 @@ exports.createUser = (req,res) => {
                 {emailUsed: true}
             );
         }
+    }).catch((err) => {
+        res.json({
+            user:false,
+            err: err
+        });
+    });
+};
+
+exports.getUser = (req,res) => {
+    console.log('something');
+    console.log(req.params);
+    knex('users').where('users.user_id', req.params.id)
+    .then((data) => {
+        res.json({
+            user: true,
+            data: data
+        });
+    }).catch((err) => {
+        res.json({
+            user:false,
+            err: err
+        });
     });
 };
 
 function createUser(body, res){
-    knex('users').insert({
+    knex('users').returning('*').insert({
         first_name:body.first_name,
         last_name:body.last_name,
         email: body.email,
