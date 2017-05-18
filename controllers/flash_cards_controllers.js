@@ -59,27 +59,25 @@ exports.postFlashCardDeck = (req, res) => {
     .where('field_of_study_id', body.field_of_study_id)
     .then((data) => {
         if(data.length === 0){
-            createFlashCardDeck(body,res);
+            return createFlashCardDeck(body);
         }else {
-            res.json({
+            return {
                 newFlashDeck: false,
-                data:data
-            });
+                ata: data
+            };
         }
+    }).then((data) => {
+        res.json(data);
+    }).catch((err) => {
+        console.log(err);
     });
 };
 
-function createFlashCardDeck(body, res){
-    knex('flash_card_deck')
+function createFlashCardDeck(body){
+    return knex('flash_card_deck')
     .returning('*')
     .insert({
         field_of_study_id: body.field_of_study_id,
         flash_card_deck_name: body.flash_card_deck_name
-    })
-    .then((data) => {
-        res.json({
-            newFlashDeck: true,
-            data: data
-        });
     });
 }
