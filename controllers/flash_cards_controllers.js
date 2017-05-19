@@ -63,7 +63,7 @@ exports.postFlashCardDeck = (req, res) => {
         }else {
             return {
                 newFlashDeck: false,
-                ata: data
+                data: data
             };
         }
     }).then((data) => {

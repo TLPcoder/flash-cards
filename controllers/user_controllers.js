@@ -57,6 +57,7 @@ exports.getUser = (req,res) => {
     });
 };
 
+
 function createUser(body, res){
     knex('users').returning('*').insert({
         first_name:body.first_name,
