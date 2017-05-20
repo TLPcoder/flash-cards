@@ -26,13 +26,14 @@ exports.createUser = (req,res) => {
     .where('users.email', body.email)
     .then((data) => {
         if(data.length === 0){
-            createUser(body, res);
+            return createUser(body);
         }else{
-            res.json(
-                {emailUsed: true}
-            );
+            return {emailUsed: true};
         }
+    }).then((data) => {
+        res.json(data);
     }).catch((err) => {
+        console.log(err);
         res.json({
             user:false,
             err: err
@@ -41,8 +42,6 @@ exports.createUser = (req,res) => {
 };
 
 exports.getUser = (req,res) => {
-    console.log('something');
-    console.log(req.params);
     knex('users').where('users.user_id', req.params.id)
     .then((data) => {
         res.json({
@@ -58,21 +57,12 @@ exports.getUser = (req,res) => {
 };
 
 
-function createUser(body, res){
-    knex('users').returning('*').insert({
+function createUser(body){
+    return knex('users').returning('*').insert({
         first_name:body.first_name,
         last_name:body.last_name,
         email: body.email,
         hashed_password: body.password,
         age: body.age
-    }).then((data) => {
-        if(data){
-            res.json({
-                newUser:true,
-                data:data
-            });
-        }
-    }).catch((err)=>{
-        console.log(err);
     });
 }
