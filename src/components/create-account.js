@@ -11,7 +11,7 @@ class CreateAccount extends Component{
         return(
             <div>
                 <NavBarCreateAccount/>
-                <CreateUserForm/>
+                <CreateAccountForm/>
             </div>
         )
     }

@@ -17,6 +17,7 @@ class LoginForm extends Component{
         .then((res) => {
             console.log('response',res.data.data[0]);
             this.props.loginUser(res.data.data[0]);
+            sessionStorage.setItem('user', res.data[0].user_id);
         })
         .catch((err) => {
             console.log(err);
