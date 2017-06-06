@@ -1,4 +1,15 @@
 'use strict';
-export const ADD_PERSON = 'ADD_PERSON';
-export const LOGIN_IN = 'LOGIN_IN';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const CREATE_ACCOUNT = 'CREAT_ACCOUNT';
+export const CREATE_ACCOUNT_SUCCESS = 'CREAT_ACCOUNT_SUCCESS';
+export const CREATE_ACCOUNT_FAIL = 'CREAT_ACCOUNT_FAIL';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const ADD_CATEGORY_SUCCESS = 'ADD_CATEGORY_SUCCESS';
+export const ADD_CATEGORY_FAIL = 'ADD_CATEGORY_FAIL';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+export const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+export const GET_CATEGORIES_FAIL = 'GET_CATEGORIES_FAIL';
 export const LOG_OUT = 'LOG_OUT';
+export const REQUEST = 'REQUEST';

@@ -1,18 +1,14 @@
 'use strict'
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-class NavBarLogin extends Component{
-    constructor(props){
-        super(props);
-    }
-    render(){
-        return(
-            <div id = 'nav-bar-login'>
-                <h1 className = 'app-name' >Cyber Flash</h1>
-            <button id = 'create-account-page-button'>Create Account</button>
-            </div>
-        )
-    }
+const NavBarLogin = props => {
+    return (
+        <div id='nav-bar-login'>
+            <h1 className='app-name'>Cyber Flash</h1>
+            <Link to='/create-account'>Create Account</Link>
+        </div>
+    )
 }
 
 export default NavBarLogin;

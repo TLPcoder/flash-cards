@@ -4,9 +4,9 @@
   "private": true,
   "devDependencies": {
     "autoprefixer": "6.3.7",
-    "babel-core": "6.11.4",
+    "babel-core": "^6.11.4",
     "babel-eslint": "6.1.2",
-    "babel-loader": "6.2.4",
+    "babel-loader": "^6.2.4",
     "babel-plugin-syntax-trailing-function-commas": "6.8.0",
     "babel-plugin-transform-class-properties": "6.11.5",
     "babel-plugin-transform-object-rest-spread": "6.8.0",
@@ -52,7 +52,9 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.5.2",
+    "redux-saga": "^0.15.3",
     "sqlite3": "^3.1.8"
   },
   "scripts": {

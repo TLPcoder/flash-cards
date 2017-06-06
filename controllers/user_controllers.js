@@ -4,7 +4,8 @@ var exports = module.exports = {};
 
 exports.login = (req, res) => {
     var body = req.body;
-    knex('users').where('users.email', body.email).where('users.hashed_password', body.password).then((data) => {
+    console.log('hljkhkjhj',body);
+    knex('users').where('users.email', body.email).where('users.hashed_password', body.hashed_password).then((data) => {
         if (data.length === 0) {
             res.json({
                 user : false
@@ -62,7 +63,7 @@ function createUser(body){
         first_name:body.first_name,
         last_name:body.last_name,
         email: body.email,
-        hashed_password: body.password,
+        hashed_password: body.hashed_password,
         age: body.age
     });
 }

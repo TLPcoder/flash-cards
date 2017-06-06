@@ -22,10 +22,10 @@ app.use(function(req, res, next) {
       next();
     }
 });
-
-app.use('/public', publicPath);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use('/public', publicPath);
 app.get('/', function(_, res) {
     res.sendFile(indexPath);
 });

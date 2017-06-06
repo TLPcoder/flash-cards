@@ -4,45 +4,46 @@ import {connect} from 'react-redux';
 import * as userActions from '../actions/user-actions';
 import axios from 'axios';
 
-class LoginForm extends Component{
-    constructor(props){
-        super(props);
-        this.checkLogin = this.checkLogin.bind(this);
+const LoginForm = props => {
+    function checkLogin() {
+        var payload = {
+            body: {
+                email: document.getElementById('email-login').value,
+                hashed_password: document.getElementById('password-login').value
+            },
+            url: `http://localhost:8000/users/login`,
+            method: 'post'
+        };
+        props.loginUser(payload);
     }
-    checkLogin(){
-        axios.post('http://localhost:8000/users/login', {
-            email: document.getElementById('email-login').value,
-            password: document.getElementById('password-login').value
-        })
-        .then((res) => {
-            console.log('response',res.data.data[0]);
-            this.props.loginUser(res.data.data[0]);
-            sessionStorage.setItem('user', res.data[0].user_id);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+
+    function profile() {
+        props.router.history.push('/profile');
     }
-    render(){
-        console.log('props', this.props);
-        return (
-            <div id = 'LoginForm-container'>
-                <label>Email</label>
-                <input id = 'email-login' type="text" placeholder='email'/>
-                <br/>
-                <label>Password</label>
-                <input id = 'password-login' type="password" placeholder='password'/>
-                <br/>
-            <input type="button" value = 'Login' onClick={this.checkLogin}/>
-            </div>
-        )
+
+    if (props.users.user) {
+        sessionStorage.setItem('user', props.users.data[0].user_id);
+        profile();
     }
+
+    return (
+        <div id='LoginForm-container'>
+            <label>Email</label>
+            <input id='email-login' type="text" placeholder='email'/>
+            <br/>
+            <label>Password</label>
+            <input id='password-login' type="password" placeholder='password'/>
+            <br/>
+            <input type="button" value='Login' onClick={checkLogin}/>
+        </div>
+    )
+
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return state;
 }
 
-
-
-export default connect(mapStateToProps, {...userActions})(LoginForm);
+export default connect(mapStateToProps, {
+    ...userActions
+})(LoginForm);

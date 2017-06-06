@@ -1,6 +1,13 @@
+'use strict';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../reducers';
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
+import startForman from '../sagas';
 
 export default (initialState) => {
-  return createStore(rootReducer, initialState);
+    const sagaMiddleware = createSagaMiddleware();
+    return {...createStore(rootReducer,
+      applyMiddleware(sagaMiddleware)),
+    runSaga: sagaMiddleware.run(startForman)
+  };
 };
