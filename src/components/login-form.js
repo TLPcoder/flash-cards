@@ -17,13 +17,13 @@ const LoginForm = props => {
         props.loginUser(payload);
     }
 
-    function profile() {
-        props.router.history.push('/profile');
-    }
+    // function profile() {
+    //     props.router.history.push('/profile');
+    // }
 
     if (props.users.user) {
         sessionStorage.setItem('user', props.users.data[0].user_id);
-        profile();
+        props.router.history.push('/profile')
     }
 
     return (

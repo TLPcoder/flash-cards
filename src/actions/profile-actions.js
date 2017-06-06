@@ -14,3 +14,17 @@ export const addCategory = payload =>{
         payload
     };
 };
+
+export const getUserDecks = payload =>{
+    return {
+        type: types.GET_DECKS,
+        payload
+    };
+};
+
+export const getFlashCards = payload =>{
+    return {
+        type: types.GET_FLASHCARDS,
+        payload
+    };
+};

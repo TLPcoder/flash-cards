@@ -25,7 +25,6 @@ class CreateAccountForm extends Component{
             }
 
         };
-        console.log('create account', this.props);
         this.props.createAccount(payload);
         //sessionStorage.setItem('user', res.data[0].user_id);
 

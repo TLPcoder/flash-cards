@@ -6,6 +6,8 @@ import './App.css';
 import LoginPage from './components/login-page';
 import CreateAccount from './components/create-account';
 import Profile from './components/profile';
+import Deck from './components/deck';
+import FlashCards from './components/flashcards';
 import {Switch, Route} from 'react-router-dom';
 
 const App = props => {
@@ -13,7 +15,9 @@ const App = props => {
         <Switch>
             <Route exact path='/' component={LoginPage}/>
             <Route exact path='/create-account' component={CreateAccount}/>
-        <Route exact path='/profile' component={Profile}/>
+            <Route exact path='/profile' component={Profile}/>
+            <Route path='/flashcards/:id' component={FlashCards}/>
+            <Route path='/deck/:id' component={Deck}/>
         </Switch>
     );
 }

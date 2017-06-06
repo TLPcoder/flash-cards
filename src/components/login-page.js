@@ -4,7 +4,6 @@ import NavBarLogin from './nav-bar-login';
 import LoginForm from './login-form';
 
 const LoginPage = props => {
-    console.log('props', props);
     return (
         <div>
             <NavBarLogin router={props}/>
