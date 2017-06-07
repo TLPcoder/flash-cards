@@ -53,10 +53,11 @@ export function * deleteCategory({payload}){
     const config = {
         method,
         url,
-        body
+        data:body
     };
+    console.log('hello there from sagas', config);
     try{
-        const data = yield call(axios, config);
+        const data = yield call(axios,config);
         yield put({type: types.DELETE_CATEGORY_SUCCESS, data});
     }catch (error){
         yield put({type: types.DELETE_CATEGORY_FAIL, error});

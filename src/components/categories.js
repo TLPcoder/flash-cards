@@ -4,25 +4,39 @@ import {connect} from 'react-redux';
 import * as flashCards from '../actions/profile-actions';
 import {Link} from 'react-router-dom';
 
-const Categories = props => {
-    function editCategory(event) {
+export class Categories extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            addCategory: false,
+            editCategory: false
+        };
+        this.editCategory = this.editCategory.bind(this);
+        this.deleteCategory = this.deleteCategory.bind(this);
+        this.buildCategories = this.buildCategories.bind(this);
+    }
+    editCategory(event) {
         const payload = {
-            method:'PUT',
+            method: 'PUT',
             url: '',
-            body:{}
+            body: {}
         };
 
     }
-    function deleteCategory(event) {
+    deleteCategory(event) {
+        var user = sessionStorage.getItem('user');
         const payload = {
-            method:'PUT',
-            url: '',
-            body:{}
+            method: 'DELETE',
+            url: 'http://localhost:8000/flashcards/delete_category/',
+            body: {
+                field_of_study_id: event.target.name,
+                user_id: user
+            }
         };
         this.props.deleteCategory(payload);
     }
-    function buildCategories() {
-        return props.state.flashcards.categories.map(el => {
+    buildCategories() {
+        return this.props.state.flashcards.categories.map(el => {
             var toDeck = `/deck/${el.field_of_study_id}`;
             return (
                 <div className='categories-card'>
@@ -36,10 +50,21 @@ const Categories = props => {
             )
         });
     }
-
-    return (
-        <div>{buildCategories()}</div>
-    )
+    render() {
+        if (this.state.addCategory) {
+            return (
+                <div>{buildCategories()}</div>
+            )
+        }else if(this.state.editCategory){
+            return (
+                <div>{buildCategories()}</div>
+            )
+        }else{
+            return (
+                <div>{buildCategories()}</div>
+            )
+        }
+    }
 }
 
 function mapStateToProps(state) {

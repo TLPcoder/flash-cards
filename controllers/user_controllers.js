@@ -4,7 +4,6 @@ var exports = module.exports = {};
 
 exports.login = (req, res) => {
     var body = req.body;
-    console.log('hljkhkjhj',body);
     knex('users').where('users.email', body.email).where('users.hashed_password', body.hashed_password).then((data) => {
         if (data.length === 0) {
             res.json({

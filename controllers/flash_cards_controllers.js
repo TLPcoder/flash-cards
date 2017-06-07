@@ -70,6 +70,7 @@ exports.postCategory = (req,res) => {
 
 exports.deleteCategory = (req,res) =>{
     var body = req.body;
+    console.log('body', body);
     knex('field_of_study')
     .where('field_of_study_id', body.field_of_study_id)
     .del()

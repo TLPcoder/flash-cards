@@ -2,33 +2,58 @@
 import * as types from '../actions/action-types';
 
 const initialState = {
-        categories: [],
-        deck: [],
-        flashcards: []
+    categories: [],
+    deck: [],
+    flashcards: []
 };
 
-export default (state = initialState, action) =>{
-    switch(action.type){
+export default(state = initialState, action) => {
+    switch (action.type) {
         case types.GET_CATEGORIES_SUCCESS:
-            return {...state,categories: action.data.data};
+            return {
+                ...state,
+                categories: action.data.data
+            };
         case types.GET_CATEGORIES_FAIL:
-            return {...state};
+            return {
+                ...state
+            };
         case types.ADD_CATEGORY_SUCCESS:
-            return {...state,categories: action.data.data};
+            return {
+                ...state,
+                categories: action.data.data
+            };
         case types.ADD_CATEGORY_FAIL:
-            return {...state};
+            return {
+                ...state
+            };
         case types.GET_DECKS_SUCCESS:
-            return {...state, deck: action.data.data};
+            return {
+                ...state,
+                deck: action.data.data
+            };
         case types.GET_DECKS_FAIL:
-            return {...state};
+            return {
+                ...state
+            };
         case types.GET_FLASHCARDS_SUCCESS:
-            return {...state, flashcards: action.data.data};
+            return {
+                ...state,
+                flashcards: action.data.data
+            };
         case types.GET_FLASHCARDS_FAIL:
-            return {...state};
+            return {
+                ...state
+            };
         case types.DELETE_CATEGORY_SUCCESS:
-            return {...state, categories: action.data.data};
-            case types.DELETE_CATEGORY_FAIL:
-                return {...state};
+            return {
+                ...state,
+                categories: action.data.data
+            };
+        case types.DELETE_CATEGORY_FAIL:
+            return {
+                ...state
+            };
         default:
             return state;
     }
