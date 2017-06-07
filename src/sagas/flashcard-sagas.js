@@ -47,3 +47,18 @@ export function * getFlashcards({payload}) {
         yield put({type: types.GET_FLASHCARDS_FAIL, error});
     }
 }
+
+export function * deleteCategory({payload}){
+    const {method, url, body} = payload;
+    const config = {
+        method,
+        url,
+        body
+    };
+    try{
+        const data = yield call(axios, config);
+        yield put({type: types.DELETE_CATEGORY_SUCCESS, data});
+    }catch (error){
+        yield put({type: types.DELETE_CATEGORY_FAIL, error});
+    }
+}

@@ -10,17 +10,11 @@ const initialState = {
 export default (state = initialState, action) =>{
     switch(action.type){
         case types.GET_CATEGORIES_SUCCESS:
-            return {
-                ...state,
-                categories: action.data.data
-            };
+            return {...state,categories: action.data.data};
         case types.GET_CATEGORIES_FAIL:
             return {...state};
         case types.ADD_CATEGORY_SUCCESS:
-            return {
-                ...state,
-                categories: action.data.data
-            };
+            return {...state,categories: action.data.data};
         case types.ADD_CATEGORY_FAIL:
             return {...state};
         case types.GET_DECKS_SUCCESS:
@@ -31,6 +25,10 @@ export default (state = initialState, action) =>{
             return {...state, flashcards: action.data.data};
         case types.GET_FLASHCARDS_FAIL:
             return {...state};
+        case types.DELETE_CATEGORY_SUCCESS:
+            return {...state, categories: action.data.data};
+            case types.DELETE_CATEGORY_FAIL:
+                return {...state};
         default:
             return state;
     }

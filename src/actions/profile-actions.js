@@ -28,3 +28,10 @@ export const getFlashCards = payload =>{
         payload
     };
 };
+
+export const deleteCategory = payload => {
+    return {
+        type: types.DELETE_CATEGORY,
+        payload
+    };
+};

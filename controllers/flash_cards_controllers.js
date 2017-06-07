@@ -51,9 +51,40 @@ exports.postFlashCards = (req, res) => {
     });
 };
 
+exports.postCategory = (req,res) => {
+    var body = req.body;
+    knex('field_of_study')
+    .insert({
+        user_id: body.user_id,
+        field_name: body.field_name,
+        description: body.description
+    }).then(() => {
+        return knex('field_of_study')
+        .where('user_id', body.user_id);
+    }).then(data=>{
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
+exports.deleteCategory = (req,res) =>{
+    var body = req.body;
+    knex('field_of_study')
+    .where('field_of_study_id', body.field_of_study_id)
+    .del()
+    .then(() => {
+        return knex('field_of_study')
+        .where('user_id', body.user_id);
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
 exports.postFlashCardDeck = (req, res) => {
     var body = req.body;
-    console.log(body);
     knex('flash_card_deck')
     .where('flash_card_deck_name', body.flash_card_deck_name)
     .where('field_of_study_id', body.field_of_study_id)
