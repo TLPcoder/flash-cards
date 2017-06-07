@@ -53,6 +53,7 @@ exports.postFlashCards = (req, res) => {
 
 exports.postCategory = (req,res) => {
     var body = req.body;
+    console.log(body);
     knex('field_of_study')
     .insert({
         user_id: body.user_id,

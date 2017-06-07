@@ -1,7 +1,7 @@
 'use strict';
 import { takeEvery } from 'redux-saga/effects';
 import { login, createAccount} from './user-saga';
-import {getCategories, getDecks, getFlashcards, deleteCategory} from './flashcard-sagas';
+import {getCategories, getDecks, getFlashcards, deleteCategory,addCategory} from './flashcard-sagas';
 import * as types from '../actions/action-types';
 
 export default function* watchRequest() {
@@ -10,5 +10,6 @@ export default function* watchRequest() {
     yield takeEvery(types.GET_CATEGORIES, getCategories);
     yield takeEvery(types.GET_DECKS, getDecks);
     yield takeEvery(types.GET_FLASHCARDS, getFlashcards);
+    yield takeEvery(types.ADD_CATEGORY, addCategory);
     yield takeEvery(types.DELETE_CATEGORY, deleteCategory);
 }

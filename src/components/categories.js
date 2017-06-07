@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as flashCards from '../actions/profile-actions';
 import {Link} from 'react-router-dom';
+import AddCategory from './add-category';
 
 export class Categories extends Component {
     constructor(props) {
@@ -14,14 +15,17 @@ export class Categories extends Component {
         this.editCategory = this.editCategory.bind(this);
         this.deleteCategory = this.deleteCategory.bind(this);
         this.buildCategories = this.buildCategories.bind(this);
+        this.addCategory = this.addCategory.bind(this);
     }
-    editCategory(event) {
-        const payload = {
-            method: 'PUT',
-            url: '',
-            body: {}
-        };
-
+    addCategory(){
+        this.setState({
+            addCategory:!this.state.addCategory
+        });
+    }
+    editCategory(){
+        this.setState({
+            editCategory:!this.state.editCategory
+        });
     }
     deleteCategory(event) {
         var user = sessionStorage.getItem('user');
@@ -40,8 +44,8 @@ export class Categories extends Component {
             var toDeck = `/deck/${el.field_of_study_id}`;
             return (
                 <div className='categories-card'>
-                    <input type='button' onClick={editCategory} value='edit' name={el.field_of_study_id}/>
-                    <input type='button' onClick={deleteCategory} value='delete' name={el.field_of_study_id}/>
+                    <input type='button' onClick={this.editCategory} value='edit' name={el.field_of_study_id}/>
+                <input type='button' onClick={this.deleteCategory} value='delete' name={el.field_of_study_id}/>
                     <Link to={toDeck}>
                         <h4>{el.field_name}</h4>
                         <h5>{el.description}</h5>
@@ -53,15 +57,22 @@ export class Categories extends Component {
     render() {
         if (this.state.addCategory) {
             return (
-                <div>{buildCategories()}</div>
+
+                <div>
+                    <AddCategory added={this.addCategory}/>
+                    {this.buildCategories()}
+                </div>
             )
         }else if(this.state.editCategory){
             return (
-                <div>{buildCategories()}</div>
+                <div>{this.buildCategories()}</div>
             )
         }else{
             return (
-                <div>{buildCategories()}</div>
+                <div>
+                    <input type="button" value="Add" onClick={this.addCategory}/>
+                    {this.buildCategories()}
+                </div>
             )
         }
     }
