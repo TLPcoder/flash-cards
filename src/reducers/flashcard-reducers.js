@@ -27,6 +27,15 @@ export default(state = initialState, action) => {
             return {
                 ...state
             };
+        case types.EDIT_CATEGORY_SUCCESS:
+            return {
+                ...state,
+                categories: action.data.data
+            };
+        case types.EDIT_CATEGORY_FAIL:
+            return {
+                ...state
+            };
         case types.GET_DECKS_SUCCESS:
             return {
                 ...state,

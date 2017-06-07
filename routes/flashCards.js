@@ -15,6 +15,8 @@ router.post('/create_flash_card_deck', controller.postFlashCardDeck);
 
 router.post('/create_category', controller.postCategory);
 
+router.put('/edit_category', controller.putCategory);
+
 router.delete('/delete_category', controller.deleteCategory);
 
 module.exports = router;

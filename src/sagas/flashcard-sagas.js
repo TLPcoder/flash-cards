@@ -70,11 +70,25 @@ export function * addCategory({payload}) {
         url,
         data: body
     };
-    console.log('hello from add category saga', config);
     try {
         const data = yield call(axios,config);
         yield put({type: types.ADD_CATEGORY_SUCCESS, data});
     } catch (error) {
         yield put({type: types.ADD_CATEGORY_FAIL, error});
+    }
+}
+export function * editCategory({payload}) {
+    const {method, url, body} = payload;
+    const config = {
+        method,
+        url,
+        data: body
+    };
+    console.log('hello from edit category saga', config);
+    try {
+        const data = yield call(axios,config);
+        yield put({type: types.EDIT_CATEGORY_SUCCESS, data});
+    } catch (error) {
+        yield put({type: types.EDIT_CATEGORY_FAIL, error});
     }
 }

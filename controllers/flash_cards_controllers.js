@@ -51,6 +51,24 @@ exports.postFlashCards = (req, res) => {
     });
 };
 
+exports.putCategory = (req,res) => {
+    var body = req.body;
+    knex('field_of_study')
+    .where('user_id', body.user_id)
+    .where('field_of_study_id', body.field_of_study_id)
+    .update({
+        field_name: body.field_name,
+        description: body.description
+    }).then(() => {
+        return knex('field_of_study')
+        .where('user_id', body.user_id);
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
 exports.postCategory = (req,res) => {
     var body = req.body;
     console.log(body);

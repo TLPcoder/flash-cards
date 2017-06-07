@@ -35,3 +35,10 @@ export const deleteCategory = payload => {
         payload
     };
 };
+
+export const editCategory = payload => {
+    return {
+        type: types.EDIT_CATEGORY,
+        payload
+    };
+};
