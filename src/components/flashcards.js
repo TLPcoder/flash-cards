@@ -3,35 +3,64 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as profileActions from '../actions/profile-actions';
+import AddFlashcard from './add-flashcard';
+import BuildFlashCards from './build-flashcards';
 
-export class FlashCards extends Component{
-    constructor(props){
+export class FlashCards extends Component {
+    constructor(props) {
         super(props);
-        this.buildFlashcards = this.buildFlashcards.bind(this);
+        this.state = {
+            add: false,
+            edit: {
+                edited: false,
+                editID: null
+            },
+            view: false
+        };
     }
-    componentWillMount(){
+    add = () => {
+        this.setState({
+            add: !this.state.add
+        });
+    }
+    edit = () => {}
+    deleteFlashCard = (event) => {
         const payload = {
-            method:'GET',
+            method: "DELETE",
+            url: '',
+            body: {
+                flash_card_id: event.target.name
+            }
+        };
+        // this.props.deleteFlashcard(payload);
+    }
+
+    componentWillMount = () => {
+        const payload = {
+            method: 'GET',
             url: `http://localhost:8000/flashcards/flash_card_cards/${this.props.location.pathname.split('/')[2]}`
         };
         this.props.getFlashCards(payload);
     }
-    buildFlashcards(){
-        console.log('flashcards', this.props);
-        return this.props.flashcards.map(el => {
+    render() {
+        if (this.state.add) {
             return (
-                <div className ='flashcard-display'>
-                    <h4>{el.question}</h4>
-                    <h4>{el.answer}</h4>
+                <div>
+                    <AddFlashcard add={{
+                        location: this.props.location,
+                        added: this.add
+                    }}/>
+                    <BuildFlashCards flashcards={this.props.flashcards}/>
                 </div>
             )
-        })
-    }
-    render(){
-        console.log(this.props);
-        return (
-            <div>{this.buildFlashcards()}</div>
-        )
+        } else {
+            return (
+                <div>
+                    <input type="button" value='Add' onClick={this.add}/>
+                    <BuildFlashCards flashcards={this.props.flashcards}/>
+                </div>
+            )
+        }
     }
 }
 

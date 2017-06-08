@@ -9,12 +9,18 @@ export const addCategory = payload => {
     return {type: types.ADD_CATEGORY, payload};
 };
 
+export const addFlashcard = payload => {
+    return {type: types.ADD_FLASHCARD, payload};
+};
+
 export const getUserDecks = payload => {
     return {type: types.GET_DECKS, payload};
 };
+
 export const postUserDecks = payload => {
     return {type: types.ADD_DECK, payload};
 };
+
 export const putUserDecks = payload => {
     return {type: types.EDIT_DECK, payload};
 };

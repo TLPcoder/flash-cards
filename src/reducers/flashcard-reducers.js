@@ -8,6 +8,10 @@ export default(state = [], action) => {
             return action.data.data
         case types.GET_FLASHCARDS_FAIL:
             return [...state];
+        case types.ADD_FLASHCARD_SUCCESS:
+            return action.data.data
+        case types.ADD_FLASHCARD_FAIL:
+            return [...state];
         default:
             return state;
     }

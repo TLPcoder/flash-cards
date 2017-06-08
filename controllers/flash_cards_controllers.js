@@ -54,12 +54,14 @@ exports.getFlashCards = (req,res) => {
 exports.postFlashCards = (req, res) => {
     var body = req.body;
     knex('flash_card')
-    .returning('*')
     .insert({
         flash_card_deck_id: body.flash_card_deck_id,
         question:body.question,
         answer:body.answer
-    }).then((data) => {
+    }).then(() => {
+        return knex('flash_card')
+        .where('flash_card_deck_id', body.flash_card_deck_id);
+    }).then(data => {
         res.json(data);
     }).catch((err) => {
         console.log(err);
