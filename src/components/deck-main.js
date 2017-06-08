@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as profileActions from '../actions/profile-actions';
 import AddDeck from './add-deck';
+import EditDeck from './edit-deck';
 
 export class DeckMain extends Component {
     constructor(props) {
@@ -16,7 +17,20 @@ export class DeckMain extends Component {
             }
         };
     }
-    editDeck = () => {}
+    editDeck = (event) => {
+        event === undefined?
+        this.setState({
+            edit: {
+                editDeck: !this.state.edit.editDeck,
+                deckID: null
+            }
+        }):this.setState({
+            edit: {
+                editDeck: !this.state.edit.editDeck,
+                deckID: event.target.name
+            }
+        });
+    }
     addDeck = () => {
         console.log('state', this.state);
         this.setState({
@@ -59,6 +73,11 @@ export class DeckMain extends Component {
         } else if (this.state.edit.editDeck) {
             return (
                 <div>
+                    <EditDeck edit={{
+                            edited: this.editDeck,
+                            editID: this.state.edit.deckID,
+                            router: this.props.router
+                        }}/>
                     <input type="button" value='Add' onClick={this.addDeck}/> {this.buildDecks()}
                 </div>
             )

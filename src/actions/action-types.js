@@ -31,6 +31,10 @@ export const ADD_DECK = 'ADD_DECKS';
 export const ADD_DECK_SUCCESS = 'ADD_DECK_SUCCESS';
 export const ADD_DECK_FAIL = 'ADD_DECK_FAIL';
 
+export const EDIT_DECK = 'EDIT_DECKS';
+export const EDIT_DECK_SUCCESS = 'EDIT_DECK_SUCCESS';
+export const EDIT_DECK_FAIL = 'EDIT_DECK_FAIL';
+
 export const DELETE_DECKS = 'DELETE_DECKS';
 export const DELETE_DECKS_SUCCESS = 'DELETE_DECK_SUCCESS';
 export const DELETE_DECKS_FAIL = 'DELETE_DECK_FAIL';

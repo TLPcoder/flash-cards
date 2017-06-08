@@ -134,3 +134,19 @@ exports.postFlashCardDeck = (req, res) => {
         console.log(err);
     });
 };
+
+exports.putFlashCardDeck = (req,res) => {
+    var body = req.body;
+    knex('flash_card_deck')
+    .where('flash_card_deck_id', body.flash_card_deck_id)
+    .update({
+        flash_card_deck_name: body.flash_card_deck_name,
+    }).then(() => {
+        return knex('flash_card_deck')
+        .where('field_of_study_id', body.field_of_study_id);
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+    });
+};
