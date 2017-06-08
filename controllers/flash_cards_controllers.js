@@ -122,29 +122,15 @@ exports.deleteCategory = (req,res) =>{
 exports.postFlashCardDeck = (req, res) => {
     var body = req.body;
     knex('flash_card_deck')
-    .where('flash_card_deck_name', body.flash_card_deck_name)
-    .where('field_of_study_id', body.field_of_study_id)
-    .then((data) => {
-        if(data.length === 0){
-            return createFlashCardDeck(body);
-        }else {
-            return {
-                newFlashDeck: false,
-                data: data
-            };
-        }
-    }).then((data) => {
+    .insert({
+        field_of_study_id: body.field_of_study_id,
+        flash_card_deck_name: body.flash_card_deck_name
+    }).then(() => {
+        return knex('flash_card_deck')
+        .where('field_of_study_id', body.field_of_study_id);
+    }).then(data =>{
         res.json(data);
     }).catch((err) => {
         console.log(err);
     });
 };
-
-function createFlashCardDeck(body){
-    return knex('flash_card_deck')
-    .returning('*')
-    .insert({
-        field_of_study_id: body.field_of_study_id,
-        flash_card_deck_name: body.flash_card_deck_name
-    });
-}
