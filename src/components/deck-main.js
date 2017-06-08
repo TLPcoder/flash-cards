@@ -49,11 +49,10 @@ export class DeckMain extends Component {
         });
     }
     render() {
-        console.log('add state', this.state.add);
         if (this.state.add) {
             return (
                 <div>
-                    <AddDeck added={this.addDeck}/>
+                    <AddDeck added={this.addDeck} location={this.props.router.location}/>
                     {this.buildDecks()}
                 </div>
             )

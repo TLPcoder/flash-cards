@@ -107,3 +107,18 @@ export function * deleteDeck({payload}) {
         yield put({type: types.DELETE_DECKS_FAIL, error});
     }
 }
+
+export function * addDeck({payload}) {
+    const {method, url, body} = payload;
+    const config = {
+        method,
+        url,
+        data: body
+    };
+    try {
+        const data = yield call(axios, config);
+        yield put({type: types.ADD_DECK_SUCCESS, data});
+    } catch (error) {
+        yield put({type: types.ADD_DECK_FAIL, error});
+    }
+}
