@@ -53,7 +53,7 @@ export class Categories extends Component {
         this.props.deleteCategory(payload);
     }
     buildCategories() {
-        return this.props.state.flashcards.categories.map(el => {
+        return this.props.state.categories.map(el => {
             var toDeck = `/deck/${el.field_of_study_id}`;
             return (
                 <div className='categories-card'>
@@ -68,6 +68,7 @@ export class Categories extends Component {
         });
     }
     render() {
+        console.log(this.props);
         if (this.state.addCategory) {
             return (
 
@@ -76,7 +77,6 @@ export class Categories extends Component {
                 </div>
             )
         } else if (this.state.edit.editCategory) {
-            console.log('rendered');
             return (
                 <div>
                     <EditCategory edit={{

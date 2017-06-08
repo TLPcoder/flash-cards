@@ -18,7 +18,7 @@ export class FlashCards extends Component{
     }
     buildFlashcards(){
         console.log('flashcards', this.props);
-        return this.props.state.flashcards.flashcards.map(el => {
+        return this.props.flashcards.map(el => {
             return (
                 <div className ='flashcard-display'>
                     <h4>{el.question}</h4>
@@ -35,10 +35,4 @@ export class FlashCards extends Component{
     }
 }
 
-function mapStateToProps(state){
-    return {
-        state:state
-    }
-}
-
-export default connect(mapStateToProps,{...profileActions})(FlashCards);
+export default connect(({flashcards}) => ({flashcards}), profileActions)(FlashCards);

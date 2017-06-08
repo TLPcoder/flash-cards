@@ -56,7 +56,7 @@ export function * deleteCategory({payload}) {
         data: body
     };
     try {
-        const data = yield call(axios,config);
+        const data = yield call(axios, config);
         yield put({type: types.DELETE_CATEGORY_SUCCESS, data});
     } catch (error) {
         yield put({type: types.DELETE_CATEGORY_FAIL, error});
@@ -71,7 +71,7 @@ export function * addCategory({payload}) {
         data: body
     };
     try {
-        const data = yield call(axios,config);
+        const data = yield call(axios, config);
         yield put({type: types.ADD_CATEGORY_SUCCESS, data});
     } catch (error) {
         yield put({type: types.ADD_CATEGORY_FAIL, error});
@@ -86,9 +86,24 @@ export function * editCategory({payload}) {
     };
     console.log('hello from edit category saga', config);
     try {
-        const data = yield call(axios,config);
+        const data = yield call(axios, config);
         yield put({type: types.EDIT_CATEGORY_SUCCESS, data});
     } catch (error) {
         yield put({type: types.EDIT_CATEGORY_FAIL, error});
+    }
+}
+
+export function * deleteDeck({payload}) {
+    const {method, url, body} = payload;
+    const config = {
+        method,
+        url,
+        data: body
+    };
+    try {
+        const data = yield call(axios, config);
+        yield put({type: types.DELETE_DECKS_SUCCESS, data});
+    } catch (error) {
+        yield put({type: types.DELETE_DECKS_FAIL, error});
     }
 }

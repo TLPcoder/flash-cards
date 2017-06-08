@@ -18,7 +18,6 @@ const EditCategory = props => {
         props.editCategory(payload);
         props.edit.edited();
     }
-    console.log('edit props', props);
     return (
         <div id='edit-category-container'>
             <input type="text" placeholder='Subject' id='edit-field-name'/>
