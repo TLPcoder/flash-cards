@@ -6,27 +6,19 @@ export default(state = [], action) => {
         case types.GET_CATEGORIES_SUCCESS:
             return action.data.data
         case types.GET_CATEGORIES_FAIL:
-            return {
-                ...state
-            };
+            return [...state];
         case types.ADD_CATEGORY_SUCCESS:
             return action.data.data
         case types.ADD_CATEGORY_FAIL:
-            return {
-                ...state
-            };
+            return [...state];
         case types.EDIT_CATEGORY_SUCCESS:
             return action.data.data
         case types.EDIT_CATEGORY_FAIL:
-            return {
-                ...state
-            };
+            return [...state];
         case types.DELETE_CATEGORY_SUCCESS:
             return action.data.data
         case types.DELETE_CATEGORY_FAIL:
-            return {
-                ...state
-            };
+            return [...state];
         default:
             return state;
     }

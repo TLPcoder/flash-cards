@@ -137,6 +137,7 @@ exports.postFlashCardDeck = (req, res) => {
 
 exports.putFlashCardDeck = (req,res) => {
     var body = req.body;
+    console.log(body);
     knex('flash_card_deck')
     .where('flash_card_deck_id', body.flash_card_deck_id)
     .update({

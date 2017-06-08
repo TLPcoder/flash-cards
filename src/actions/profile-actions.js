@@ -15,6 +15,9 @@ export const getUserDecks = payload => {
 export const postUserDecks = payload => {
     return {type: types.ADD_DECK, payload};
 };
+export const putUserDecks = payload => {
+    return {type: types.EDIT_DECK, payload};
+};
 
 export const deleteUserDeck = payload => {
     return {type: types.DELETE_DECKS, payload};

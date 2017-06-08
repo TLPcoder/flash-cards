@@ -5,15 +5,18 @@ import * as profileActions from '../actions/profile-actions';
 
 const EditDeck = props => {
     function updateDeck() {
+        console.log('edit props', props);
         const payload = {
             method: 'PUT',
-            url: '',
+            url: 'http://localhost:8000/flashcards/edit_flash_card_deck',
             body: {
-                flash_card_deck_name: document.getElementById('edit-deck-name'),
+                flash_card_deck_name: document.getElementById('edit-deck-name').value,
                 flash_card_deck_id: props.edit.editID,
-                field_of_study_id: props.router.location.pathname.split('/')[2]
+                field_of_study_id: props.edit.router.location.pathname.split('/')[2]
             }
         };
+        props.putUserDecks(payload);
+        props.edit.edited();
     }
     console.log('edit deck', props);
     return (

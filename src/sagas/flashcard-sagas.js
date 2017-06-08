@@ -122,3 +122,18 @@ export function * addDeck({payload}) {
         yield put({type: types.ADD_DECK_FAIL, error});
     }
 }
+
+export function * editDeck({payload}) {
+    const {method, url, body} = payload;
+    const config = {
+        method,
+        url,
+        data: body
+    };
+    try {
+        const data = yield call(axios, config);
+        yield put({type: types.EDIT_DECK_SUCCESS, data});
+    } catch (error) {
+        yield put({type: types.EDIT_DECK_FAIL, error});
+    }
+}
