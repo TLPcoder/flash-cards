@@ -28,3 +28,16 @@ export const editFlashcardTraverse = payload => {
         payload
     };
 };
+export const addCategoryTraverse = payload => {
+    return {
+        type:types.ADD_CATEGORY_TRAVERSE,
+        payload
+    };
+};
+
+export const editCategoryTraverse = payload => {
+    return {
+        type:types.EDIT_CATEGORY_TRAVERSE,
+        payload
+    };
+};

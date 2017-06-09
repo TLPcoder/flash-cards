@@ -4,10 +4,9 @@ import axios from 'axios';
 import * as types from '../actions/action-types';
 
 export function * getCategories({payload}) {
-    const {method, url} = payload;
     const config = {
-        method,
-        url
+        method:'GET',
+        url:payload
     };
 
     try {
@@ -47,11 +46,10 @@ export function * getFlashcards({payload}) {
 }
 
 export function * deleteCategory({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'DELETE',
+        url:'http://localhost:8000/flashcards/delete_category/',
+        data: payload
     };
     try {
         const data = yield call(axios, config);
@@ -62,11 +60,10 @@ export function * deleteCategory({payload}) {
 }
 
 export function * addCategory({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'POST',
+        url:`http://localhost:8000/flashcards/create_category`,
+        data: payload
     };
     try {
         const data = yield call(axios, config);
@@ -76,13 +73,11 @@ export function * addCategory({payload}) {
     }
 }
 export function * editCategory({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'PUT',
+        url:`http://localhost:8000/flashcards/edit_category`,
+        data: payload
     };
-    console.log('hello from edit category saga', config);
     try {
         const data = yield call(axios, config);
         yield put({type: types.EDIT_CATEGORY_SUCCESS, data});
