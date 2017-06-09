@@ -15,6 +15,13 @@ var initialState = {
             flashcarID: null
         },
         add: false
+    },
+    categories: {
+        edit: {
+            editCategory: false,
+            categoryID: null
+        },
+        add: false
     }
 };
 
@@ -58,6 +65,27 @@ export default(state = initialState, action) => {
                 flashcards: {
                     edit: {
                         ...state.flashcards.edit
+                    },
+                    add: action.payload
+                }
+            }
+        case types.EDIT_CATEGORY_TRAVERSE:
+            return {
+                ...state,
+                categories: {
+                    edit: {
+                        editCategory: action.payload.editCategory,
+                        categoryID: action.payload.categoryID
+                    },
+                    add: state.categories.add
+                }
+            };
+        case types.ADD_CATEGORY_TRAVERSE:
+            return {
+                ...state,
+                categories: {
+                    edit: {
+                        ...state.categories.edit
                     },
                     add: action.payload
                 }
