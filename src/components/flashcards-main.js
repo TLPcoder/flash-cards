@@ -24,6 +24,11 @@ export class FlashCardsMain extends Component {
             add: !state.add
         }));
     }
+    view = () => {
+        this.setState(state => ({
+            view: !state.view
+        }));
+    }
     edit = (event) => {
         if(event === undefined){
             this.setState({

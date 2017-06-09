@@ -12,7 +12,6 @@ export class AddFlashcard extends PureComponent {
         };
     }
     changeState = ({ target }) => {
-        console.log(target.value)
         if (target.id === 'add-flashcard-answer') {
             this.setState({answer: target.value});
         } else {
