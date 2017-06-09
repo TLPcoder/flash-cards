@@ -44,13 +44,24 @@ export default(state = initialState, action) => {
         case types.EDIT_FLASHCARD_TRAVERSE:
             return {
                 ...state,
-                edit: action.payload
+                flashcards: {
+                    edit: {
+                        editFlashcard: action.payload.editFlashcard,
+                        flashcarID: action.payload.flashcarID
+                    },
+                    add: state.flashcards.add
+                }
             };
         case types.ADD_FLASHCARD_TRAVERSE:
             return {
                 ...state,
-                add: action.payload
-            };
+                flashcards: {
+                    edit: {
+                        ...state.flashcards.edit
+                    },
+                    add: action.payload
+                }
+            }
         default:
             return state
     }
