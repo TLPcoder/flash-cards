@@ -2,93 +2,65 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as flashCards from '../actions/profile-actions';
+import * as traverse from '../actions/traversing-actions';
 import {Link} from 'react-router-dom';
 import AddCategory from './add-category';
 import EditCategory from './edit-category';
+import CategoryBuilder from './category-builder';
 
 export class Categories extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            addCategory: false,
-            edit: {
-                editCategory: false,
-                categoryID: null
-            }
-        };
-        this.editCategory = this.editCategory.bind(this);
         this.deleteCategory = this.deleteCategory.bind(this);
-        this.buildCategories = this.buildCategories.bind(this);
-        this.addCategory = this.addCategory.bind(this);
     }
-    addCategory() {
-        this.setState({
-            addCategory: !this.state.addCategory
-        });
-    }
-    editCategory(event) {
-        event === undefined?
-        this.setState({
-            edit: {
-                editCategory: !this.state.edit.editCategory,
-                categoryID: null
-            }
-        }):this.setState({
-            edit: {
-                editCategory: !this.state.edit.editCategory,
-                categoryID: event.target.name
-            }
-        });
-    }
-    deleteCategory(event) {
+    deleteCategory({target}) {
         var user = sessionStorage.getItem('user');
         const payload = {
             method: 'DELETE',
             url: 'http://localhost:8000/flashcards/delete_category/',
             body: {
-                field_of_study_id: event.target.name,
+                field_of_study_id: target.name,
                 user_id: user
             }
         };
         this.props.deleteCategory(payload);
     }
-    buildCategories() {
-        return this.props.state.categories.map(el => {
-            var toDeck = `/deck/${el.field_of_study_id}`;
-            return (
-                <div className='categories-card'>
-                    <input type='button' onClick={this.editCategory} value='edit' name={el.field_of_study_id}/>
-                    <input type='button' onClick={this.deleteCategory} value='delete' name={el.field_of_study_id}/>
-                    <Link to={toDeck}>
-                        <h4>{el.field_name}</h4>
-                        <h5>{el.description}</h5>
-                    </Link>
-                </div>
-            )
-        });
-    }
     render() {
-        console.log(this.props);
-        if (this.state.addCategory) {
+        if (this.props.state.traverse.categories.add) {
             return (
 
                 <div>
-                    <AddCategory added={this.addCategory}/> {this.buildCategories()}
+                    <AddCategory added={this.addCategory}/>
+                    <CategoryBuilder categories={{
+                        categories: this.props.state.categories,
+                        editCategory: this.editCategory,
+                        deleteCategory: this.deleteCategory
+                    }}/>
                 </div>
             )
-        } else if (this.state.edit.editCategory) {
+        } else if (this.props.state.traverse.categories.edit.editCategory) {
             return (
                 <div>
-                    <EditCategory edit={{
-                        edited: this.editCategory,
-                        editID: this.state.edit.categoryID
-                    }}/> {this.buildCategories()}
+                    <EditCategory/>
+                    <CategoryBuilder categories={{
+                        categories: this.props.state.categories,
+                        editCategory: this.editCategory,
+                        deleteCategory: this.deleteCategory
+                    }}/>
                 </div>
             )
         } else {
+            console.log('askjfhasdkjfhlksdjahasjfklhadsfjk', this.props);
             return (
                 <div>
-                    <input type="button" value="Add" onClick={this.addCategory}/> {this.buildCategories()}
+                    <input type="button" value="Add" onClick={() => {
+                        this.props.addCategoryTraverse(!this.props.state.traverse.categories.add)
+                    }}/>
+                    <CategoryBuilder categories={{
+                        categories: this.props.state.categories,
+                        editCategory: this.editCategory,
+                        deleteCategory: this.deleteCategory
+                    }}/>
                 </div>
             )
         }
@@ -100,5 +72,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-    ...flashCards
+    ...flashCards,
+    ...traverse
 })(Categories);
