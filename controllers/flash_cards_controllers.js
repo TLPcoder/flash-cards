@@ -54,6 +54,20 @@ exports.deleteFlashCardDeck = (req,res) => {
     });
 };
 
+exports.deleteFlashCards = (req,res) => {
+    var body = req.body;
+    knex('flash_card')
+    .where('flash_card_id', body.flash_card_id)
+    .del()
+    .then(() => {
+        return knex('flash_card').where('flash_card_deck_id', body.flash_card_deck_id);
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
 exports.getFlashCards = (req,res) => {
     knex('flash_card_deck')
     .innerJoin('flash_card', 'flash_card_deck.flash_card_deck_id', 'flash_card.flash_card_deck_id')

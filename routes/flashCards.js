@@ -13,6 +13,8 @@ router.post('/create_flash_card', controller.postFlashCards);
 
 router.put('/edit_flash_card', controller.putFlashCards);
 
+router.put('/delete_flash_card', controller.deleteFlashCards);
+
 router.post('/create_category', controller.postCategory);
 
 router.put('/edit_category', controller.putCategory);

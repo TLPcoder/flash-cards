@@ -16,6 +16,10 @@ export default(state = [], action) => {
             return action.data.data
         case types.EDIT_FLASHCARD_FAIL:
             return [...state];
+        case types.DELETE_FLASHCARD_SUCCESS:
+            return action.data.data
+        case types.DELETE_FLASHCARD_FAIL:
+            return [...state];
         default:
             return state;
     }

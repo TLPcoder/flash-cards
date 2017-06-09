@@ -46,16 +46,12 @@ export class FlashCards extends Component {
                 }
             });
     }
-
     deleteFlashCard = (event) => {
         const payload = {
-            method: "DELETE",
-            url: '',
-            body: {
-                flash_card_id: event.target.name
-            }
+            flash_card_id: event.target.name,
+            flash_card_deck_id: this.props.location.pathname.split('/')[2]
         };
-        // this.props.deleteFlashcard(payload);
+        this.props.deleteFlashcard(payload);
     }
     render() {
         if (this.state.add) {
@@ -67,7 +63,8 @@ export class FlashCards extends Component {
                     }}/>
                     <BuildFlashCards flashcards={{
                         data: this.props.flashcards,
-                        edit: this.edit
+                        edit: this.edit,
+                        deleteFlashCard: this.deleteFlashCard
                     }}/>
                 </div>
             )
@@ -82,7 +79,8 @@ export class FlashCards extends Component {
                     }}/>
                     <BuildFlashCards flashcards={{
                         data: this.props.flashcards,
-                        edit: this.edit
+                        edit: this.edit,
+                        deleteFlashCard: this.deleteFlashCard
                     }}/>
                 </div>
             )
@@ -92,7 +90,8 @@ export class FlashCards extends Component {
                     <input type="button" value='Add' onClick={this.add}/>
                     <BuildFlashCards flashcards={{
                         data: this.props.flashcards,
-                        edit: this.edit
+                        edit: this.edit,
+                        deleteFlashCard: this.deleteFlashCard
                     }}/>
                 </div>
             )

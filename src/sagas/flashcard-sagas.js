@@ -164,3 +164,16 @@ export function * editFlashcard({payload}) {
         yield put({type: types.EDIT_FLASHCARD_FAIL, error});
     }
 }
+export function * deleteFlashcard({payload}) {
+    const config = {
+        method:'PUT',
+        url:'http://localhost:8000/flashcards/delete_flash_card',
+        data: payload
+    };
+    try {
+        const data = yield call(axios, config);
+        yield put({type: types.DELETE_FLASHCARD_SUCCESS, data});
+    } catch (error) {
+        yield put({type: types.DELETE_FLASHCARD_FAIL, error});
+    }
+}
