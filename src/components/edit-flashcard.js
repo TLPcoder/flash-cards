@@ -2,6 +2,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import * as profileActions from '../actions/profile-actions';
+import * as traverse from '../actions/traversing-actions';
 
 export class EditFlashcard extends PureComponent {
     constructor(props) {
@@ -18,6 +19,12 @@ export class EditFlashcard extends PureComponent {
             this.setState({question: target.value});
         }
     }
+    editedFlashCard = () => {
+        this.props.editFlashcardTraverse({
+            editFlashcard: !this.props.traverse.flashcards.edit.editFlashcard,
+            flashcarID: this.props.traverse.flashcards.edit.flashcarID
+        })
+    }
     editFlashcard = () => {
 
         const {answer, question} = this.state;
@@ -26,10 +33,10 @@ export class EditFlashcard extends PureComponent {
             answer,
             question,
             flash_card_deck_id: this.props.edit.location.pathname.split('/')[2],
-            flash_card_id: this.props.edit.editID
+            flash_card_id: this.props.traverse.flashcards.edit.flashcarID
         };
         this.props.editFlashcard(payload);
-        this.props.edit.edited()
+        this.editedFlashCard();
     }
     render() {
         return (
@@ -37,10 +44,10 @@ export class EditFlashcard extends PureComponent {
                 <input type="text" onChange={this.changeState} placeholder='question' id='edit-flashcard-question'/>
                 <input type="text" onChange={this.changeState} placeholder='answer' id='edit-flashcard-answer'/>
                 <input type="button" value='Update' onClick={this.editFlashcard}/>
-                <input type="button" value='back' onClick={this.props.edit.edited}/>
+                <input type="button" value='back' onClick={this.editedFlashCard}/>
             </div>
         )
     }
 }
 
-export default connect(({flashcards}) => ({flashcards}), profileActions)(EditFlashcard);
+export default connect(({flashcards,traverse}) => ({flashcards,traverse}), {...profileActions,...traverse})(EditFlashcard);

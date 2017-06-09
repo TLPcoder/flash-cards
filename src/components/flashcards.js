@@ -8,7 +8,6 @@ import BuildFlashCards from './build-flashcards';
 import EditFlashcard from './edit-flashcard';
 
 const FlashCards = props => {
-    console.log('flashcard props', props);
     if (props.traverse.flashcards.add) {
         return (
             <div>
@@ -17,23 +16,19 @@ const FlashCards = props => {
                 }}/>
                 <BuildFlashCards flashcards={{
                     data: props.flashcards,
-                    edit: props.flashcard.edit,
                     deleteFlashCard: props.flashcard.deleteFlashCard
                 }}/>
             </div>
         )
     }
-    if (props.flashcard.flashState.edit.edited) {
+    if (props.traverse.flashcards.edit.editFlashcard) {
         return (
             <div>
                 <EditFlashcard edit={{
                     location: props.flashcard.location,
-                    edited: props.flashcard.edit,
-                    editID: props.flashcard.flashState.edit.editID
                 }}/>
                 <BuildFlashCards flashcards={{
                     data: props.flashcards,
-                    edit: props.flashcard.edit,
                     deleteFlashCard: props.flashcard.deleteFlashCard
                 }}/>
             </div>
@@ -46,7 +41,6 @@ const FlashCards = props => {
                 }}/>
                 <BuildFlashCards flashcards={{
                     data: props.flashcards,
-                    edit: props.flashcard.edit,
                     deleteFlashCard: props.flashcard.deleteFlashCard
                 }}/>
             </div>

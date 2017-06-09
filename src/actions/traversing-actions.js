@@ -24,7 +24,7 @@ export const addFlashcardTraverse = payload => {
 
 export const editFlashcardTraverse = payload => {
     return {
-        type:types.ADD_FLASHCARD_TRAVERSE,
+        type:types.EDIT_FLASHCARD_TRAVERSE,
         payload
     };
 };
