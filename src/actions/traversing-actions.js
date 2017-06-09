@@ -28,6 +28,14 @@ export const editFlashcardTraverse = payload => {
         payload
     };
 };
+
+export const studyFlashcardTraverse = payload => {
+    return {
+        type:types.STUDY_FLASHCARD_TRAVERSE,
+        payload
+    };
+};
+
 export const addCategoryTraverse = payload => {
     return {
         type:types.ADD_CATEGORY_TRAVERSE,

@@ -14,7 +14,8 @@ var initialState = {
             editFlashcard: false,
             flashcarID: null
         },
-        add: false
+        add: false,
+        study: false
     },
     categories: {
         edit: {
@@ -56,7 +57,8 @@ export default(state = initialState, action) => {
                         editFlashcard: action.payload.editFlashcard,
                         flashcarID: action.payload.flashcarID
                     },
-                    add: state.flashcards.add
+                    add: state.flashcards.add,
+                    study: state.flashcards.study
                 }
             };
         case types.ADD_FLASHCARD_TRAVERSE:
@@ -66,9 +68,21 @@ export default(state = initialState, action) => {
                     edit: {
                         ...state.flashcards.edit
                     },
-                    add: action.payload
+                    add: action.payload,
+                    study: state.flashcards.study
                 }
             }
+        case types.STUDY_FLASHCARD_TRAVERSE:
+            return {
+                ...state,
+                flashcards: {
+                    edit: {
+                        ...state.flashcards.edit
+                    },
+                    add: state.flashcards.add,
+                    study: action.payload
+                }
+            };
         case types.EDIT_CATEGORY_TRAVERSE:
             return {
                 ...state,

@@ -11,11 +11,6 @@ export class FlashCardsMain extends Component {
     componentWillMount = () => {
         this.props.getFlashCards(`http://localhost:8000/flashcards/flash_card_cards/${this.props.location.pathname.split('/')[2]}`);
     }
-    view = () => {
-        this.setState(state => ({
-            view: !state.view
-        }));
-    }
     deleteFlashCard = (event) => {
         const payload = {
             flash_card_id: event.target.name,
