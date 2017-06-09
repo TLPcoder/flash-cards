@@ -2,6 +2,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import * as profileActions from '../actions/profile-actions';
+import * as traverse from '../actions/traversing-actions';
 
 export class AddFlashcard extends PureComponent {
     constructor(props) {
@@ -27,7 +28,7 @@ export class AddFlashcard extends PureComponent {
             flash_card_deck_id: this.props.add.location.pathname.split('/')[2]
         };
         this.props.addFlashcard(payload);
-        this.props.add.added();
+        this.props.addFlashcardTraverse(!this.props.traverse.flashcards.add)
     }
     render() {
         return (
@@ -40,4 +41,4 @@ export class AddFlashcard extends PureComponent {
     }
 }
 
-export default connect(({flashcards}) => ({flashcards}), profileActions)(AddFlashcard);
+export default connect(({flashcards,traverse}) => ({flashcards,traverse}), {...profileActions,...traverse})(AddFlashcard);
