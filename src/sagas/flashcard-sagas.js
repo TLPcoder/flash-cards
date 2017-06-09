@@ -139,16 +139,28 @@ export function * editDeck({payload}) {
 }
 
 export function * addFlashcard({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'POST',
+        url:'http://localhost:8000/flashcards/create_flash_card',
+        data: payload
     };
     try {
         const data = yield call(axios, config);
         yield put({type: types.ADD_FLASHCARD_SUCCESS, data});
     } catch (error) {
         yield put({type: types.ADD_FLASHCARD_FAIL, error});
+    }
+}
+export function * editFlashcard({payload}) {
+    const config = {
+        method:'PUT',
+        url:'http://localhost:8000/flashcards/edit_flash_card',
+        data: payload
+    };
+    try {
+        const data = yield call(axios, config);
+        yield put({type: types.EDIT_FLASHCARD_SUCCESS, data});
+    } catch (error) {
+        yield put({type: types.EDIT_FLASHCARD_FAIL, error});
     }
 }

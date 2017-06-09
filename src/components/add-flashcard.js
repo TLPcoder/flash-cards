@@ -1,30 +1,44 @@
 'use strict';
-import React, {pureComponet}from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import * as profileActions from '../actions/profile-actions';
 
-const AddFlashcard = props => {
-    function addFlashcard(){
-        const payload = {
-            method: 'POST',
-            url: 'http://localhost:8000/flashcards/create_flash_card',
-            body: {
-                answer: document.getElementById('add-flashcard-answer').value,
-                question: document.getElementById('add-flashcard-question').value,
-                flash_card_deck_id:props.add.location.pathname.split('/')[2]
-            }
+export class AddFlashcard extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            answer: '',
+            question: ''
         };
-        props.addFlashcard(payload);
-        props.add.added();
     }
-    console.log(props);
-    return (
-        <div>
-            <input type="text" placeholder='question' id='add-flashcard-question'/>
-            <input type="text" placeholder='answer' id='add-flashcard-answer'/>
-            <input type="button" value='Create' onClick={addFlashcard}/>
-        </div>
-    )
+    changeState = ({ target }) => {
+        console.log(target.value)
+        if (target.id === 'add-flashcard-answer') {
+            this.setState({answer: target.value});
+        } else {
+            this.setState({question: target.value});
+        }
+    }
+    addFlashcard = () => {
+        const { answer, question } = this.state;
+
+        const payload = {
+            answer,
+            question,
+            flash_card_deck_id: this.props.add.location.pathname.split('/')[2]
+        };
+        this.props.addFlashcard(payload);
+        this.props.add.added();
+    }
+    render() {
+        return (
+            <div>
+                <input type="text" onChange={this.changeState} placeholder='question' id='add-flashcard-question'/>
+                <input type="text" onChange={this.changeState} placeholder='answer' id='add-flashcard-answer'/>
+                <input type="button" value='Create' onClick={this.addFlashcard}/>
+            </div>
+        )
+    }
 }
 
 export default connect(({flashcards}) => ({flashcards}), profileActions)(AddFlashcard);

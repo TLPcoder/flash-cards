@@ -3,10 +3,11 @@ import React from 'react';
 
 const BuildFlashCards = props => {
     function buildFlashcards() {
-        return props.flashcards.map(el => {
+        console.log('build flashcards', props);
+        return props.flashcards.data.map(el => {
             return (
                 <div className='flashcard-display'>
-                    <input type="button" value="edit"/>
+                    <input type="button" value="edit" name ={el.flash_card_id} onClick={props.flashcards.edit}/>
                     <input type="button" value="delete"/>
                     <div>
                         <h4>{el.question}</h4>

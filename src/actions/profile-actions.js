@@ -40,3 +40,6 @@ export const deleteCategory = payload => {
 export const editCategory = payload => {
     return {type: types.EDIT_CATEGORY, payload};
 };
+export const editFlashcard= payload => {
+    return {type: types.EDIT_FLASHCARD, payload};
+};

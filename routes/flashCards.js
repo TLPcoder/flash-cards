@@ -11,6 +11,8 @@ router.get('/flash_card_cards/:flash_card_deck_id', controller.getFlashCards);
 
 router.post('/create_flash_card', controller.postFlashCards);
 
+router.put('/edit_flash_card', controller.putFlashCards);
+
 router.post('/create_category', controller.postCategory);
 
 router.put('/edit_category', controller.putCategory);

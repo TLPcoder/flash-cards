@@ -24,6 +24,20 @@ exports.getFlashCardDeck = (req, res) => {
     });
 };
 
+exports.putFlashCards = (req,res) => {
+    var body = req.body;
+    knex('flash_card')
+    .where('flash_card_id', body.flash_card_id)
+    .update({question:body.question, answer:body.answer})
+    .then(() => {
+        return knex('flash_card').where('flash_card_deck_id', body.flash_card_deck_id);
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
 exports.deleteFlashCardDeck = (req,res) => {
     var body = req.body;
     console.log('body', body);
