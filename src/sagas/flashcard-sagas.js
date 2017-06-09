@@ -19,10 +19,9 @@ export function * getCategories({payload}) {
 }
 
 export function * getDecks({payload}) {
-    const {method, url} = payload;
     const config = {
-        method,
-        url
+        method:'GET',
+        url:payload
     };
 
     try {

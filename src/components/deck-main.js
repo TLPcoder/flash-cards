@@ -18,51 +18,22 @@ export class DeckMain extends Component {
             }
         };
     }
-    editDeck = (event) => {
-        event === undefined
-            ? this.setState({
-                edit: {
-                    editDeck: !this.state.edit.editDeck,
-                    deckID: null
-                }
-            })
-            : this.setState({
-                edit: {
-                    editDeck: !this.state.edit.editDeck,
-                    deckID: event.target.name
-                }
-            });
-    }
-    deleteDeck = (event) => {
-        const payload = {
-            method: 'DELETE',
-            url: `http://localhost:8000/flashcards/delete_flash_card_deck`,
-            body: {
-                field_of_study_id: Number(this.props.router.location.pathname.split('/')[2]),
-                flash_card_deck_id: event.target.name
-            }
-        };
-        this.props.deleteUserDeck(payload);
-    }
     render() {
-        console.log('lasdjflksdjflksdjfkl;d', this.props);
+        console.log('adslkjfakdsfhkjdsahfkljasdfhm', this.props);
         if (this.props.traverse.decks.add) {
             return (
                 <div>
                     <AddDeck location={this.props.router.location}/>
                     <BuildDeck decks={{
                         data: this.props.decks,
-                        editDeck: this.editDeck,
-                        deleteDeck: this.deleteDeck
+                        deleteDeck: this.props.router.deleteDeck
                     }}/>
                 </div>
             )
-        } else if (this.state.edit.editDeck) {
+        } else if (this.props.traverse.decks.edit.editDeck) {
             return (
                 <div>
                     <EditDeck edit={{
-                        edited: this.editDeck,
-                        editID: this.state.edit.deckID,
                         router: this.props.router
                     }}/>
                     <input type="button" value='Add' onClick={() => {
@@ -70,8 +41,7 @@ export class DeckMain extends Component {
                     }}/>
                     <BuildDeck decks={{
                         data: this.props.decks,
-                        editDeck: this.editDeck,
-                        deleteDeck: this.deleteDeck
+                        deleteDeck: this.props.router.deleteDeck
                     }}/>
                 </div>
             )
@@ -83,8 +53,7 @@ export class DeckMain extends Component {
                     }}/>
                     <BuildDeck decks={{
                         data: this.props.decks,
-                        editDeck: this.editDeck,
-                        deleteDeck: this.deleteDeck
+                        deleteDeck: this.props.router.deleteDeck
                     }}/>
                 </div>
             )

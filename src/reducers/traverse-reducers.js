@@ -7,30 +7,50 @@ var initialState = {
             editDeck: false,
             deckID: null
         },
-        add:false
+        add: false
     },
     flashcards: {
         edit: {
             editFlashcard: false,
             flashcarID: null
         },
-        add:false
+        add: false
     }
 };
 
 export default(state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case types.EDIT_DECK_TRAVERSE:
-            return {...state, edit:action.payload};
+            return {
+                ...state,
+                decks: {
+                    edit: {
+                        editDeck: action.payload.editDeck,
+                        deckID: action.payload.deckID
+                    },
+                    add: state.decks.add
+                }
+            };
         case types.ADD_DECK_TRAVERSE:
-            return {...state, decks:{
-                edit:{...state.decks.edit},
-                add:action.payload
-            }};
+            return {
+                ...state,
+                decks: {
+                    edit: {
+                        ...state.decks.edit
+                    },
+                    add: action.payload
+                }
+            };
         case types.EDIT_FLASHCARD_TRAVERSE:
-            return {...state, edit:action.payload};
+            return {
+                ...state,
+                edit: action.payload
+            };
         case types.ADD_FLASHCARD_TRAVERSE:
-            return {...state, add:action.payload};
+            return {
+                ...state,
+                add: action.payload
+            };
         default:
             return state
     }
