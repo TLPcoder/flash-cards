@@ -11,13 +11,13 @@ const CategoryBuilder = props => {
         });
     }
     function buildCategories() {
-        console.log('buildCategories', props);
-        return props.categories.categories.map(el => {
+        console.log('buildCategoriesasfdsfsdf', props);
+        return props.categories.map(el => {
             var toDeck = `/deck/${el.field_of_study_id}`;
             return (
                 <div className='categories-card'>
                     <input type='button' onClick={editCategory} value='edit' name={el.field_of_study_id}/>
-                    <input type='button' onClick={props.categories.deleteCategory} value='delete' name={el.field_of_study_id}/>
+                    <input type='button' onClick={props.deleteCategory} value='delete' name={el.field_of_study_id}/>
                     <Link to={toDeck}>
                         <h4>{el.field_name}</h4>
                         <h5>{el.description}</h5>
@@ -33,4 +33,4 @@ const CategoryBuilder = props => {
     )
 }
 
-export default connect(({traverse}) => ({traverse}), traverse)(CategoryBuilder)
+export default connect(({categories,traverse}) => ({categories,traverse}), traverse)(CategoryBuilder)

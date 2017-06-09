@@ -5,19 +5,17 @@ import * as flashCards from '../actions/profile-actions';
 import * as traverse from '../actions/traversing-actions';
 
 const AddCategory = props => {
+    
     function createCategory() {
         var payload = {
-            method:'POST',
-            url:`http://localhost:8000/flashcards/create_category`,
-            body: {
                 user_id: sessionStorage.getItem('user'),
                 field_name: document.getElementById('category-field-name').value,
                 description: document.getElementById('category-description').value
-            }
         };
         props.addCategory(payload);
         props.addCategoryTraverse(!props.state.traverse.categories.add);
     }
+
     return (
         <div id='add-category-container'>
             <input type="text" placeholder='Subject' id='category-field-name'/>

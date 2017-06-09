@@ -7,14 +7,10 @@ import * as traverse from '../actions/traversing-actions';
 const EditCategory = props => {
     function editCategory() {
         var payload = {
-            method: 'PUT',
-            url: `http://localhost:8000/flashcards/edit_category`,
-            body: {
                 user_id: sessionStorage.getItem('user'),
                 field_of_study_id: props.state.traverse.categories.edit.categoryID,
                 field_name: document.getElementById('edit-field-name').value,
                 description: document.getElementById('edit-description').value
-            }
         };
         props.editCategory(payload);
         props.editCategoryTraverse({
