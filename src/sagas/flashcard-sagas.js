@@ -19,10 +19,9 @@ export function * getCategories({payload}) {
 }
 
 export function * getDecks({payload}) {
-    const {method, url} = payload;
     const config = {
-        method,
-        url
+        method:'GET',
+        url:payload
     };
 
     try {
@@ -93,11 +92,10 @@ export function * editCategory({payload}) {
 }
 
 export function * deleteDeck({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'DELETE',
+        url:`http://localhost:8000/flashcards/delete_flash_card_deck`,
+        data: payload
     };
     try {
         const data = yield call(axios, config);
@@ -108,11 +106,10 @@ export function * deleteDeck({payload}) {
 }
 
 export function * addDeck({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'POST',
+        url: 'http://localhost:8000/flashcards/create_flash_card_deck',
+        data: payload
     };
     try {
         const data = yield call(axios, config);
