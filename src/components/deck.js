@@ -11,18 +11,12 @@ export class Deck extends Component {
     componentWillMount() {
         this.props.getUserDecks(`http://localhost:8000/flashcards/flash_card_deck/${this.props.location.pathname.split('/')[2]}`);
     }
-    
+
     deleteDeck = (event) => {
-        console.log('hello from delete');
-        const payload = {
-            method: 'DELETE',
-            url: `http://localhost:8000/flashcards/delete_flash_card_deck`,
-            body: {
-                field_of_study_id: Number(this.props.location.pathname.split('/')[2]),
-                flash_card_deck_id: event.target.name
-            }
-        };
-        this.props.deleteUserDeck(payload);
+        this.props.deleteUserDeck({
+            field_of_study_id: Number(this.props.location.pathname.split('/')[2]),
+            flash_card_deck_id: event.target.name
+        });
     }
     render() {
         return (

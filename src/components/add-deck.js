@@ -7,16 +7,12 @@ import * as traverse from '../actions/traversing-actions';
 const AddDeck = props => {
     function addDeck() {
         const payload = {
-            method: 'POST',
-            url: 'http://localhost:8000/flashcards/create_flash_card_deck',
-            body: {
                 flash_card_deck_name: document.getElementById('deck-card-name').value,
                 field_of_study_id: props.location.pathname.split('/')[2]
-            }
         };
         props.postUserDecks(payload);
         console.log('props add', props);
-        props.addDeckTraverse(!props.state.traverse.decks.add)
+        props.addDeckTraverse(!props.state.traverse.decks.add);
     }
     return (
         <div>
