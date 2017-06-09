@@ -34,10 +34,9 @@ export function * getDecks({payload}) {
 }
 
 export function * getFlashcards({payload}) {
-    const {method, url} = payload;
     const config = {
-        method,
-        url
+        method:'GET',
+        url:payload
     };
 
     try {

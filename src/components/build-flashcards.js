@@ -3,7 +3,6 @@ import React from 'react';
 
 const BuildFlashCards = props => {
     function buildFlashcards() {
-        console.log('build flashcards', props);
         return props.flashcards.data.map(el => {
             return (
                 <div className='flashcard-display'>
