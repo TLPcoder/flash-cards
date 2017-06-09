@@ -27,10 +27,4 @@ export class Deck extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {state: state};
-}
-
-export default connect(mapStateToProps, {
-    ...profileActions
-})(Deck);
+export default connect(({decks})=>({decks}),profileActions)(Deck);
