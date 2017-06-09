@@ -6,12 +6,12 @@ import * as profileActions from '../actions/profile-actions';
 import AddDeck from './add-deck';
 import EditDeck from './edit-deck';
 import BuildDeck from './build-deck';
+import * as traverse from '../actions/traversing-actions';
 
 export class DeckMain extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            add: false,
             edit: {
                 editDeck: false,
                 deckID: null
@@ -33,11 +33,6 @@ export class DeckMain extends Component {
                 }
             });
     }
-    addDeck = () => {
-        this.setState({
-            add: !this.state.add
-        });
-    }
     deleteDeck = (event) => {
         const payload = {
             method: 'DELETE',
@@ -50,10 +45,11 @@ export class DeckMain extends Component {
         this.props.deleteUserDeck(payload);
     }
     render() {
-        if (this.state.add) {
+        console.log('lasdjflksdjflksdjfkl;d', this.props);
+        if (this.props.traverse.decks.add) {
             return (
                 <div>
-                    <AddDeck added={this.addDeck} location={this.props.router.location}/>
+                    <AddDeck location={this.props.router.location}/>
                     <BuildDeck decks={{
                         data: this.props.decks,
                         editDeck: this.editDeck,
@@ -69,7 +65,9 @@ export class DeckMain extends Component {
                         editID: this.state.edit.deckID,
                         router: this.props.router
                     }}/>
-                    <input type="button" value='Add' onClick={this.addDeck}/>
+                    <input type="button" value='Add' onClick={() => {
+                        this.props.addDeckTraverse(!this.props.traverse.decks.add)
+                    }}/>
                     <BuildDeck decks={{
                         data: this.props.decks,
                         editDeck: this.editDeck,
@@ -80,7 +78,9 @@ export class DeckMain extends Component {
         } else {
             return (
                 <div>
-                    <input type="button" value='Add' onClick={this.addDeck}/>
+                    <input type="button" value='Add'  onClick={() => {
+                        this.props.addDeckTraverse(!this.props.traverse.decks.add)
+                    }}/>
                     <BuildDeck decks={{
                         data: this.props.decks,
                         editDeck: this.editDeck,
@@ -92,4 +92,7 @@ export class DeckMain extends Component {
     }
 }
 
-export default connect(({decks}) => ({decks}), profileActions)(DeckMain);
+export default connect(({decks, traverse}) => ({decks, traverse}), {
+    ...profileActions,
+    ...traverse
+})(DeckMain);

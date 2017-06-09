@@ -2,6 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as profileActions from '../actions/profile-actions';
+import * as traverse from '../actions/traversing-actions';
 
 const AddDeck = props => {
     function addDeck() {
@@ -14,7 +15,8 @@ const AddDeck = props => {
             }
         };
         props.postUserDecks(payload);
-        props.added();
+        console.log('props add', props);
+        props.addDeckTraverse(!props.state.traverse.decks.add)
     }
     return (
         <div>
@@ -28,6 +30,4 @@ function mapStateToProps(state) {
     return {state};
 }
 
-export default connect(mapStateToProps, {
-    ...profileActions
-})(AddDeck)
+export default connect(mapStateToProps, {...profileActions,...traverse})(AddDeck)
