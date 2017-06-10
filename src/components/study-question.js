@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import * as studyActions from '../actions/study-actions';
 import * as traverse from '../actions/traversing-actions';
 import {editFlashcard} from '../actions/profile-actions';
+import StudyEditQuestion from './study-edit-question';
 
 export class StudyQuestion extends Component {
     constructor(props) {
@@ -13,16 +14,7 @@ export class StudyQuestion extends Component {
         };
     }
     edit = () => {
-        const payload = {
-            answer: this.props.flashcards[this.props.study.counter].answer,
-            question: document.getElementById('edit-study-flashcard-question').value,
-            flash_card_deck_id: this.props.flashcards[this.props.study.counter].flash_card_deck_id,
-            flash_card_id: this.props.flashcards[this.props.study.counter].flash_card_id
-        };
-        this.props.editFlashcard(payload);
-        this.setState({
-            edit: !this.state.edit
-        })
+        this.setState({edit:!this.state.edit});
     }
     previous = () => {
         if (this.props.study.counter === 0) {
@@ -46,11 +38,7 @@ export class StudyQuestion extends Component {
         if (this.state.edit) {
             return (
                 <div>
-                    <textarea name="" id="edit-study-flashcard-question" cols="30" rows="10">{this.props.flashcards[this.props.study.counter].question}</textarea>
-                    <input type="button" value="back" onClick={() => this.setState({
-                        edit: !this.state.edit
-                    })}/>
-                    <input type="button" value='Update' onClick={() => this.edit()}/>
+                    <StudyEditQuestion edit={this.edit}/>
                 </div>
             )
         } else {
@@ -60,11 +48,7 @@ export class StudyQuestion extends Component {
                     <h4 onClick={this.props.answerFlashcard}>{this.props.flashcards[this.props.study.counter].question}</h4>
                     <input type="button" value='next' onClick={this.next}/>
                     <input type="button" value="back" onClick={this.props.studyFlashcardTraverse}/>
-                    <input type="button" value='edit' onClick={() => {
-                        this.setState({
-                            edit: !this.state.edit
-                        })
-                    }}/>
+                <input type="button" value='edit' onClick={this.edit}/>
                 </div>
             )
         }
