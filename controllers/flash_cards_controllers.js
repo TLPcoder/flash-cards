@@ -26,12 +26,13 @@ exports.getFlashCardDeck = (req, res) => {
 
 exports.putFlashCards = (req,res) => {
     var body = req.body;
+    console.log('work please');
     knex('flash_card')
     .where('flash_card_id', body.flash_card_id)
     .update({question:body.question, answer:body.answer})
     .then(() => {
         return knex('flash_card').where('flash_card_deck_id', body.flash_card_deck_id)
-        .orderBy('created_at');
+        .orderBy('question', 'desc');
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -75,6 +76,7 @@ exports.getFlashCards = (req,res) => {
     knex('flash_card_deck')
     .innerJoin('flash_card', 'flash_card_deck.flash_card_deck_id', 'flash_card.flash_card_deck_id')
     .where('flash_card_deck.flash_card_deck_id', req.params.flash_card_deck_id)
+    .orderBy('flash_card_id', 'desc')
     .then((data) => {
         res.json(data);
     }).catch((err) => {
