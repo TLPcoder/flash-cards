@@ -14,7 +14,7 @@ export class StudyQuestion extends Component {
     }
     edit = () => {
         const payload = {
-            answer: this.props.flashcards[this.props.study.counter].question,
+            answer: this.props.flashcards[this.props.study.counter].answer,
             question: document.getElementById('edit-study-flashcard-question').value,
             flash_card_deck_id: this.props.flashcards[this.props.study.counter].flash_card_deck_id,
             flash_card_id: this.props.flashcards[this.props.study.counter].flash_card_id
