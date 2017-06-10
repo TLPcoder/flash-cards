@@ -1,19 +1,20 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import StudyFlashcard from './study-flashcard';
+import StudyQuestion from './study-question';
+import StudyAnswer from './study-answer';
+import * as studyActions from '../actions/study-actions';
 
-export class Study extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            counter: 0
-        };
+const Study = props => {
+    if (props.study.question) {
+        return (
+            <div><StudyQuestion/></div>
+        )
+    } else {
+        return (
+            <div><StudyAnswer/></div>
+        )
     }
-    render() {
-        console.log('study props', this.props);
-        return (<StudyFlashcard counter={this.state.counter}/>)
-    }
-}
+};
 
-export default connect(({flashcards, traverse}) => ({flashcards, traverse}))(Study)
+export default connect(({flashcards, traverse, study}) => ({flashcards, traverse, study}), studyActions)(Study)
