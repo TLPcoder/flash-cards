@@ -8,12 +8,12 @@ export class StudyAnswer extends Component {
         super(props);
     }
     render() {
-        console.log('answer props', this.props);
         return (
             <div>
-                <input type="button" value='back' onClick={this.props.backFlashcard}/>
+                <input type="button" value='previous' onClick={this.props.backFlashcard}/>
                 <h4 onClick={this.props.questionFlashcard}>{this.props.flashcards[this.props.study.counter].answer}</h4>
-            <input type="button" value='next' onClick={this.props.nextFlashcard}/>
+                <input type="button" value='next' onClick={this.props.nextFlashcard}/>
+                <input type="button" value='back' onClick={this.props.studyFlashcardTraverse}/>
             </div>
         )
     }

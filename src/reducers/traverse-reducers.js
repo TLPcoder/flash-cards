@@ -80,7 +80,7 @@ export default(state = initialState, action) => {
                         ...state.flashcards.edit
                     },
                     add: state.flashcards.add,
-                    study: action.payload
+                    study: !state.flashcards.study
                 }
             };
         case types.EDIT_CATEGORY_TRAVERSE:
