@@ -6,8 +6,8 @@ var initialState = {
     answer: false
 }
 
-export default (state = initialState, payload) => {
-    switch(payload.type){
+export default (state = initialState, action) => {
+    switch(action.type){
         case types.NEXT:
             return {...state, counter: state.counter + 1}
         case types.BACK:
@@ -16,6 +16,8 @@ export default (state = initialState, payload) => {
             return {...state, question: true, answer: false}
         case types.ANSWER:
             return {...state, question:false, answer: true}
+        case types.COUNT:
+            return {...state, counter:action.payload}
         default:
             return state
     }

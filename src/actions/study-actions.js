@@ -28,3 +28,10 @@ export const answerFlashcard = payload => {
         payload
     };
 };
+
+export const counterFlashcard = payload => {
+    return {
+        type: types.COUNT,
+        payload
+    };
+};
