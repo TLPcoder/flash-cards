@@ -7,7 +7,7 @@
     height: 80px;
 }
 
-h4{
+h4 {
     font-family: sans-serif;
 }
 
@@ -38,7 +38,7 @@ h4{
     height: 230px;
     text-align: center;
     background-color: #F5F5F5;
-    margin:auto;
+    margin: auto;
     border-radius: 15px;
     position: relative;
     top: 200px;
@@ -55,69 +55,74 @@ h4{
     margin-top: 30px;
 }
 
-#nav-bar-login,.login-button{
+#nav-bar-login, .login-button {
     /*float:right;*/
-    margin-right:30px;
+    margin-right: 30px;
 }
 
-#nav-bar-login h1{
-    margin-left:30px;
+#nav-bar-login h1 {
+    margin-left: 30px;
     border-right: solid black 2px;
     padding-right: 20px;
 }
 
-#create-account-form{
+#create-account-form {
     width: 350px;
     padding-left: 25px;
     padding-right: 25px;
     height: 420px;
     text-align: center;
     background-color: #F5F5F5;
-    margin:auto;
+    margin: auto;
     border-radius: 15px;
     position: relative;
     top: 120px;
 }
 
-.nav-bar-logout{
+.nav-bar-logout {
     margin-right: 30px;
     margin-left: 30px;
 }
 
-#add-category-container{
+#add-category-container {
     position: relative;
-    top:30px;
+    top: 30px;
     margin-left: 30px;
 }
-#edit-button-categories{
+
+#edit-button-categories {
     position: relative;
-    bottom:30px;
-}
-#edit-button-categories input,.button-edit-submit{
-    margin-left:10px;
+    bottom: 30px;
 }
 
-.button-left, .add-deck, .deck-add-text{
-    margin-left:30px;
+#edit-button-categories input, .button-edit-submit, .move-left {
+    margin-left: 10px;
 }
 
-#edit-category-container{
+.button-left, .add-deck, .deck-add-text, .edit-flashcard-main {
+    margin-left: 30px;
+}
+
+#edit-category-container {
     margin-left: 30px;
     position: relative;
-    top:30px;
+    top: 30px;
 }
 
-.button-edit-submit{
+.button-edit-submit {
     position: relative;
-    bottom:30px;
+    bottom: 30px;
 }
-.button-edit-submit input{
+
+.button-edit-submit input {
     margin-right: 10px;
 }
-.categories-card{
+
+.categories-card {
     background-color: #F5F5F5;
     margin-top: 30px;
 }
+
 .deck-cards {
     background-color: #F5F5F5;
     margin-top: 30px;
@@ -126,99 +131,205 @@ h4{
     /*height:200px;
     width:200px;*/
 }
-.category-card-contoler{
-    float:right;
+
+.category-card-contoler {
+    float: right;
 }
-.subject-name{
+
+.subject-name {
     text-align: left;
     margin-left: 30px;
 }
-.category-card{
+
+.category-card {
     text-align: right;
     position: relative;
-    bottom:20px;
+    bottom: 20px;
 }
-.category-card input{
+
+.category-card input {
     margin-right: 10px;
 }
 
-.title{
+.title {
     text-align: center;
 }
 
-#deck-controls{
+#deck-controls {
     text-align: right;
-    position:relative;
-    bottom:20px;
+    position: relative;
+    bottom: 20px;
 }
 
-#deck-controls input{
+#deck-controls input {
     margin-right: 10px;
 }
 
-#deck-name{
+#deck-name {
     text-align: left;
     font-size: 40px;
-    color:white;
+    color: white;
 }
 
-.subject-name, #deck-name{
+.subject-name, #deck-name {
     position: relative;
-    bottom:25px;
+    bottom: 25px;
 }
 
-.deck-add-text{
+.deck-add-text {
     position: relative;
-    top:30px
+    top: 30px
 }
 
-.add-deck-contols input, .edit-deck-contols input{
+.add-deck-contols input, .edit-deck-contols input {
     margin-left: 10px;
 }
 
-.add-flashcard-contols{
+.add-flashcard-contols {
     position: relative;
-    bottom:15px;
+    bottom: 15px;
     margin-left: 10px;
 }
 
-.add-flashcards-text{
+.add-flashcards-text {
     margin-left: 30px;
 }
 
-.add-flashcards-text-1{
+.add-flashcards-text-1 {
     margin-left: 10px;
 }
 
-.flashcard-buttons{
+.flashcard-buttons {
     margin-left: 30px;
 }
 
-.flashcard-buttons-1{
+.flashcard-buttons-1 {
     margin-left: 10px;
 }
 
-.add-flashcard-main{
+.add-flashcard-main, .edit-flashcard-main {
     position: relative;
-    top:15px;
+    top: 15px;
 }
 
-.flashcard-display{
-    width:200px;
-    background-color: #F5F5F5;
-    float:left;
-    height:200px;
+.flashcard-display {
+    width: 220px;
+    /*background-color: #F5F5F5;*/
+    background-image: url('http://flippity.net/images/Flashcard-BG-Side1.gif');
+    background-size: 220px 220px;
+    background-repeat: no-repeat;
+    float: left;
+    height: 220px;
     margin-bottom: 20px;
     margin-right: 20px;
     text-align: center;
+    color: black;
+    font-style: italic;
 }
 
-#flashcard-container{
-    width:900px;
+#flashcard-container {
+    width: 980px;
     margin: auto;
-
 }
 
-hr{
+hr {
     border-top: 1px dashed #8c8b8b;
+}
+
+#flashcard-answer {
+    text-align: left;
+}
+
+#edit-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #00C4A7;
+}
+
+#edit-button:hover {
+    color: #00a38b;
+}
+
+.flashcard-container {
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+}
+
+.flashcard-contolers {
+    position: relative;
+    top: 10px;
+    right: 10px;
+}
+
+.delete-button {
+    background-color: red;
+}
+
+.flashcard-edit-controller {
+    position: relative;
+    bottom: 15px;
+    left: 10px;
+}
+
+.study-container {
+    width: 500px;
+    margin: auto;
+    /*background-color: #F5F5F5;*/
+    background-image: url('http://flippity.net/images/Flashcard-BG-Side1.gif');
+    background-repeat: no-repeat;
+    position: relative;
+    top: 200px;
+    height:300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.study-view {
+    min-height: 250px;
+    text-align: left;
+    width:500px;
+}
+.study-view h4{
+    margin-right: 28px;
+    margin-top: 12px;
+    width:360px;
+    /*text-align: center;*/
+    font-size: 20px;
+}
+
+.study-view-answer h4{
+    margin-top:40px;
+    margin-right: 28px;
+    width:360px;
+    text-align: left;
+    font-size: 20px;
+}
+.study-controls {
+    position: relative;
+    top: 70px;
+    left:18px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: #00C4A7;
+}
+
+.study-edit-back {
+    position: relative;
+    bottom: 20px;
+    left:360px;
+}
+
+.textarea-question{
+    background: none;
+    border: none;
+    width:400px;
+    font-size: 20px;
+    margin: auto;
+    position: relative;
+    left:75px;
+    top:15px;
 }

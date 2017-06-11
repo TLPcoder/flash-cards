@@ -5,6 +5,8 @@ import * as studyActions from '../actions/study-actions';
 import * as traverse from '../actions/traversing-actions';
 import {editFlashcard} from '../actions/profile-actions';
 import StudyAnswerQuestion from './study-edit-answer';
+import FaAngleRight from 'react-icons/lib/fa/angle-right';
+import FaAngleLeft from 'react-icons/lib/fa/angle-left';
 
 export class StudyAnswer extends Component {
     constructor(props) {
@@ -45,11 +47,21 @@ export class StudyAnswer extends Component {
         } else {
             return (
                 <div>
-                    <input type="button" value='previous' onClick={this.previous}/>
-                    <h4 onClick={this.props.questionFlashcard}>{this.props.flashcards[this.props.study.counter].answer}</h4>
-                    <input type="button" value='next' onClick={this.next}/>
-                    <input type="button" value="back" onClick={this.props.studyFlashcardTraverse}/>
-                    <input type="button" value='edit' onClick={this.edit}/>
+                    <div className='study-edit-back'>
+                            <input className='button is-primary is-outlined' type="button" value='edit' onClick={this.edit}/>
+                            <input className='button is-danger is-outlined' type="button" value="back" onClick={this.props.studyFlashcardTraverse}/>
+                    </div>
+                    <div className='columns study-view-answer'>
+                        <div className='column is-2'>
+                            <button className='study-controls' onClick={this.previous}><FaAngleLeft/></button>
+                        </div>
+                        <div className='column is-8'>
+                            <h4 onClick={this.props.questionFlashcard}>{this.props.flashcards[this.props.study.counter].answer}</h4>
+                        </div>
+                        <div className='column is-2'>
+                            <button className='study-controls' onClick={this.next}><FaAngleRight/></button>
+                        </div>
+                    </div>
                 </div>
             )
         }

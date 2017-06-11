@@ -40,14 +40,25 @@ export class EditFlashcard extends PureComponent {
     }
     render() {
         return (
-            <div>
-                <input type="text" onChange={this.changeState} placeholder='question' id='edit-flashcard-question'/>
-                <input type="text" onChange={this.changeState} placeholder='answer' id='edit-flashcard-answer'/>
-                <input type="button" value='Update' onClick={this.editFlashcard}/>
-                <input type="button" value='back' onClick={this.editedFlashCard}/>
+            <div className='edit-flashcard-main'>
+                <div className='level'>
+                    <div className='level-left'>
+                        <input className='level-item input' type="text" onChange={this.changeState} placeholder='question' id='edit-flashcard-question'/>
+                    </div>
+                    <div className='level-left'>
+                        <input className='level-item input move-left' type="text" onChange={this.changeState} placeholder='answer' id='edit-flashcard-answer'/>
+                    </div>
+                    <div className='level-left flashcard-edit-controller'>
+                        <input className='level-item button is-primary  is-outlined move-left' type="button" value='Update' onClick={this.editFlashcard}/>
+                        <input className='level-item button is-danger is-outlined' type="button" value='back' onClick={this.editedFlashCard}/>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
-export default connect(({flashcards,traverse}) => ({flashcards,traverse}), {...profileActions,...traverse})(EditFlashcard);
+export default connect(({flashcards, traverse}) => ({flashcards, traverse}), {
+    ...profileActions,
+    ...traverse
+})(EditFlashcard);

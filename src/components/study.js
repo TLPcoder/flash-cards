@@ -8,11 +8,11 @@ import * as studyActions from '../actions/study-actions';
 const Study = props => {
     if (props.study.question) {
         return (
-            <div><StudyQuestion/></div>
+            <div className='study-container'><StudyQuestion/></div>
         )
     } else {
         return (
-            <div><StudyAnswer/></div>
+            <div className='study-container'><StudyAnswer/></div>
         )
     }
 };

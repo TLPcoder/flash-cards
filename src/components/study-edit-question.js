@@ -20,9 +20,11 @@ const StudyEditQuestion = props => {
     console.log('StudyEditQuestion', props);
     return (
         <div>
-            <textarea name="" id="edit-study-flashcard-question" cols="30" rows="10">{props.flashcards[props.study.counter].question}</textarea>
-            <input type="button" value="back" onClick={props.edit}/>
-            <input type="button" value='Update' onClick={() => edit()}/>
+            <div className='study-edit-back'>
+                <input className='button is-primary is-outlined' type="button" value='back' onClick={props.edit}/>
+                <input className='button is-danger is-outlined' type="button" value="edit" onClick={() => edit()}/>
+            </div>
+            <textarea className='textarea-question' name="" id="edit-study-flashcard-question" cols="30" rows="10">{props.flashcards[props.study.counter].question}</textarea>
         </div>
     )
 }
