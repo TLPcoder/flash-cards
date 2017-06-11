@@ -20,9 +20,11 @@ const StudyAnswerQuestion = props => {
     console.log('StudyAnswerQuestion', props);
     return (
         <div>
-            <textarea name="" id="edit-study-flashcard-answer" cols="30" rows="10">{props.flashcards[props.study.counter].answer}</textarea>
-            <input type="button" value="back" onClick={props.edit}/>
-            <input type="button" value='Update' onClick={edit}/>
+            <div className='study-edit-back'>
+                <input id='edit-study-flashcard-answer' className='button is-primary is-outlined' type="button" value="Update" onClick={edit}/>
+            <input className='button is-danger is-outlined' type="button" value='back' onClick={props.edit}/>
+            </div>
+            <textarea className='textarea-question' name="" id="edit-study-flashcard-question" cols="30" rows="10">{props.flashcards[props.study.counter].answer}</textarea>
         </div>
     )
 }

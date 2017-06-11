@@ -49,14 +49,14 @@ export class StudyQuestion extends Component {
             return (
                 <div>
                     <div className='study-edit-back'>
-                            <input className='button is-primary is-outlined' type="button" value='edit' onClick={this.edit}/>
+                            <input className='button is-primary is-outlined' type="button" value='Edit' onClick={this.edit}/>
                             <input className='button is-danger is-outlined' type="button" value="back" onClick={this.props.studyFlashcardTraverse}/>
                     </div>
                     <div className='columns study-view'>
                         <div className='column is-2'>
                             <button className='study-controls' onClick={this.previous}><FaAngleLeft/></button>
                         </div>
-                        <div className='column is-8'>
+                        <div className='column is-8 set-width-question'>
                             <h4 onClick={this.props.answerFlashcard}>{this.props.flashcards[this.props.study.counter].question}</h4>
                         </div>
                         <div className='column is-2'>

@@ -19,7 +19,7 @@ const CategoryBuilder = props => {
                 <div className='columns'>
                     <div className='categories-card column is-half is-offset-one-quarter'>
                         <div className='category-card'>
-                            <input type='button' className='button' onClick={editCategory} value='edit' name={el.field_of_study_id}/>
+                            <input type='button' className='button is-primary is-outlined' onClick={editCategory} value='edit' name={el.field_of_study_id}/>
                             <input type='button' className='button is-danger is-outlined' onClick={props.deleteCategory} value='delete' name={el.field_of_study_id}/>
                         </div>
                         <div className='subject-name'>

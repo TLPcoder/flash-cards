@@ -30,7 +30,7 @@ const EditCategory = props => {
                 <input className='input' type="text" placeholder='Subject' id='edit-field-name'/>
             </p>
             <p className='control button-edit-submit'>
-                <input type="submit" className='button is-primary is-outlined' onClick={editCategory}/>
+                <input type="button" value='Update' className='button is-primary is-outlined' onClick={editCategory}/>
                 <input type="button" className='button is-danger is-outlined' value='back' onClick={back}/>
             </p>
         </div>

@@ -48,7 +48,7 @@ export class StudyAnswer extends Component {
             return (
                 <div>
                     <div className='study-edit-back'>
-                            <input className='button is-primary is-outlined' type="button" value='edit' onClick={this.edit}/>
+                            <input className='button is-primary is-outlined' type="button" value='Edit' onClick={this.edit}/>
                             <input className='button is-danger is-outlined' type="button" value="back" onClick={this.props.studyFlashcardTraverse}/>
                     </div>
                     <div className='columns study-view-answer'>
