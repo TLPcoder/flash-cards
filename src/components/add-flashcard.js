@@ -35,11 +35,17 @@ export class AddFlashcard extends PureComponent {
     }
     render() {
         return (
-            <div>
-                <input type="text" onChange={this.changeState} placeholder='question' id='add-flashcard-question'/>
-                <input type="text" onChange={this.changeState} placeholder='answer' id='add-flashcard-answer'/>
-                <input type="button" value='Create' onClick={this.addFlashcard}/>
-                <input type="button" value="Back" onClick={this.back}/>
+            <div className='level add-flashcard-main'>
+                <div className='level-left add-flashcards-text'>
+                    <input className='level-item input' type="text" onChange={this.changeState} placeholder='question' id='add-flashcard-question'/>
+                </div>
+                <div className='level-left add-flashcards-text-1'>
+                    <input className='level-item input' type="text" onChange={this.changeState} placeholder='answer' id='add-flashcard-answer'/>
+                </div>
+                <div className='level-left add-flashcard-contols'>
+                    <input className='level-item button is-primary is-outlined' type="button" value='Create' onClick={this.addFlashcard}/>
+                    <input className='level-item button is-danger is-outlined' type="button" value="Back" onClick={this.back}/>
+                </div>
             </div>
         )
     }

@@ -12,7 +12,9 @@ var initialState = {
     flashcards: {
         edit: {
             editFlashcard: false,
-            flashcarID: null
+            flashcarID: null,
+            question:'',
+            answer:''
         },
         add: false,
         study: false
@@ -55,7 +57,9 @@ export default(state = initialState, action) => {
                 flashcards: {
                     edit: {
                         editFlashcard: action.payload.editFlashcard,
-                        flashcarID: action.payload.flashcarID
+                        flashcarID: action.payload.flashcarID,
+                        question: action.payload.question,
+                        answer:action.payload.answer
                     },
                     add: state.flashcards.add,
                     study: state.flashcards.study

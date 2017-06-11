@@ -8,8 +8,8 @@ export class EditFlashcard extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            answer: '',
-            question: ''
+            answer: this.props.traverse.flashcards.edit.answer,
+            question: this.props.traverse.flashcards.edit.question
         };
     }
     changeState = ({target}) => {

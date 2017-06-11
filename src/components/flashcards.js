@@ -23,10 +23,12 @@ const FlashCards = props => {
                         <NavBar className='level-item'/>
                     </div>
                 </div>
-                <BuildFlashCards flashcards={{
-                    data: props.flashcards,
-                    deleteFlashCard: props.flashcard.deleteFlashCard
-                }}/>
+                <div id='flashcard-container'>
+                    <BuildFlashCards flashcards={{
+                        data: props.flashcards,
+                        deleteFlashCard: props.flashcard.deleteFlashCard
+                    }}/>
+                </div>
             </div>
         )
     } else if (props.traverse.flashcards.edit.editFlashcard) {
@@ -42,10 +44,12 @@ const FlashCards = props => {
                         <NavBar className='level-item'/>
                     </div>
                 </div>
-                <BuildFlashCards flashcards={{
-                    data: props.flashcards,
-                    deleteFlashCard: props.flashcard.deleteFlashCard
-                }}/>
+                <div id='flashcard-container'>
+                    <BuildFlashCards flashcards={{
+                        data: props.flashcards,
+                        deleteFlashCard: props.flashcard.deleteFlashCard
+                    }}/>
+                </div>
             </div>
         )
     } else if (props.traverse.flashcards.study) {
@@ -56,10 +60,10 @@ const FlashCards = props => {
                 <div className='level'>
                     <div className='level-left'>
                         <div className='level-item'>
-                            <input type="button" value='Study' onClick={() => {
+                            <input className='button is-primary flashcard-buttons' type="button" value='Study' onClick={() => {
                                 props.studyFlashcardTraverse(!props.traverse.flashcards.study)
                             }}/>
-                            <input type="button" value='Add' onClick={() => {
+                            <input className='button is-danger flashcard-buttons-1' type="button" value='Add' onClick={() => {
                                 props.addFlashcardTraverse(!props.traverse.flashcards.add)
                             }}/>
                         </div>
@@ -68,10 +72,12 @@ const FlashCards = props => {
                         <NavBar className='level-item'/>
                     </div>
                 </div>
-                <BuildFlashCards flashcards={{
-                    data: props.flashcards,
-                    deleteFlashCard: props.flashcard.deleteFlashCard
-                }}/>
+                <div id='flashcard-container'>
+                    <BuildFlashCards flashcards={{
+                        data: props.flashcards,
+                        deleteFlashCard: props.flashcard.deleteFlashCard
+                    }}/>
+                </div>
             </div>
         )
     }
