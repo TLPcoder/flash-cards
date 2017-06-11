@@ -385,3 +385,23 @@ hr {
     position: relative;
     top:100px;
 }
+
+.center-catergory-button{
+    width:250px;
+    margin: auto;
+    position: relative;
+    top:200px;
+}
+.center-catergory{
+    width:600px;
+    margin: auto;
+    position: relative;
+    top: 180px;
+}
+
+.center-catergory input[type='button']{
+    font-size: 25px;
+}
+.center-catergory input[type='text']{
+    font-size: 25px;
+}

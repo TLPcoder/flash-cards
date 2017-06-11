@@ -22,7 +22,7 @@ const AddCategory = props => {
                 <input type="text" placeholder='Subject' className='input' id='category-field-name'/>
             </p>
             <p className='control' id='edit-button-categories'>
-                <input type="submit" className='button is-primary is-outlined' onClick={createCategory}/>
+                <input type="button" value='Add'className='button is-primary is-outlined' onClick={createCategory}/>
                 <input type="button" className='button is-danger is-outlined' value='back' onClick={() => {
                     props.addCategoryTraverse(!props.state.traverse.categories.add)
                 }}/>

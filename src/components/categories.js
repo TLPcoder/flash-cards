@@ -13,7 +13,21 @@ const Categories = props => {
         var user = sessionStorage.getItem('user');
         props.deleteCategory({field_of_study_id: target.name, user_id: user});
     }
-    if (props.state.traverse.categories.add) {
+    if (props.state.categories.length === 0 && !props.state.traverse.categories.add) {
+       return (
+           <div>
+               <div className='level'>
+                   <div className='level-left'></div>
+                   <div className='level-right'>
+                       <NavBar className='level-item'/>
+                   </div>
+               </div>
+               <input type="button" className='center-catergory-button level-item button is-large button-left is-primary is-outlined no-category-button' value="Add First Category" onClick={() => {
+                   props.addCategoryTraverse(!props.state.traverse.categories.add)
+               }}/>
+           </div>
+       )
+   }else if (props.state.traverse.categories.add && props.state.categories.length !== 0) {
         return (
             <div>
                 <div className='nav-bar-main'>
@@ -46,6 +60,20 @@ const Categories = props => {
                 </div>
                 <div className='category-container'>
                     <CategoryBuilder deleteCategory={deleteCategory}/>
+                </div>
+            </div>
+        )
+    } else if (props.state.traverse.categories.add && props.state.categories.length === 0) {
+        return (
+            <div>
+                <div className='level'>
+                    <div className='level-left'></div>
+                    <div className='level-right'>
+                        <NavBar className='level-item'/>
+                    </div>
+                </div>
+                <div className='center-catergory'>
+                    <AddCategory className='level-item'/>
                 </div>
             </div>
         )
