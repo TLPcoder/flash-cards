@@ -1,24 +1,177 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+h4{
+    font-family: sans-serif;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#loginForm-container {
+    width: 350px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 230px;
+    text-align: center;
+    background-color: #F5F5F5;
+    margin:auto;
+    border-radius: 15px;
+    position: relative;
+    top: 200px;
+}
+
+.login-text {
+    margin-top: 30px;
+    max-width: 250px;
+    padding-left: -30px;
+    padding-right: -30px;
+}
+
+.button {
+    margin-top: 30px;
+}
+
+#nav-bar-login,.login-button{
+    /*float:right;*/
+    margin-right:30px;
+}
+
+#nav-bar-login h1{
+    margin-left:30px;
+    border-right: solid black 2px;
+    padding-right: 20px;
+}
+
+#create-account-form{
+    width: 350px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 420px;
+    text-align: center;
+    background-color: #F5F5F5;
+    margin:auto;
+    border-radius: 15px;
+    position: relative;
+    top: 120px;
+}
+
+.nav-bar-logout{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+#add-category-container{
+    position: relative;
+    top:30px;
+    margin-left: 30px;
+}
+#edit-button-categories{
+    position: relative;
+    bottom:30px;
+}
+#edit-button-categories input,.button-edit-submit{
+    margin-left:10px;
+}
+
+.button-left, .add-deck, .deck-add-text{
+    margin-left:30px;
+}
+
+#edit-category-container{
+    margin-left: 30px;
+    position: relative;
+    top:30px;
+}
+
+.button-edit-submit{
+    position: relative;
+    bottom:30px;
+}
+.button-edit-submit input{
+    margin-right: 10px;
+}
+.categories-card{
+    background-color: #F5F5F5;
+    margin-top: 30px;
+}
+.deck-cards {
+    background-color: #F5F5F5;
+    margin-top: 30px;
+    margin-right: 10px;
+    /*float:left;*/
+    /*height:200px;
+    width:200px;*/
+}
+.category-card-contoler{
+    float:right;
+}
+.subject-name{
+    text-align: left;
+    margin-left: 30px;
+}
+.category-card{
+    text-align: right;
+    position: relative;
+    bottom:20px;
+}
+.category-card input{
+    margin-right: 10px;
+}
+
+.title{
+    text-align: center;
+}
+
+#deck-controls{
+    text-align: right;
+    position:relative;
+    bottom:20px;
+}
+
+#deck-controls input{
+    margin-right: 10px;
+}
+
+#deck-name{
+    text-align: left;
+    font-size: 40px;
+    color:white;
+}
+
+.subject-name, #deck-name{
+    position: relative;
+    bottom:25px;
+}
+
+.deck-add-text{
+    position: relative;
+    top:30px
+}
+
+.add-deck-contols input, .edit-deck-contols input{
+    margin-left: 10px;
 }

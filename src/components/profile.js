@@ -6,7 +6,6 @@ import NavBar from './nav-bar';
 const Profile = props => {
     return (
         <div>
-            <NavBar router={props}/>
             <Main router={props}/>
         </div>
     )

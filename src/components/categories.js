@@ -6,6 +6,7 @@ import * as traverse from '../actions/traversing-actions';
 import AddCategory from './add-category';
 import EditCategory from './edit-category';
 import CategoryBuilder from './category-builder';
+import NavBar from './nav-bar';
 
 const Categories = props => {
     function deleteCategory({target}) {
@@ -14,25 +15,45 @@ const Categories = props => {
     }
     if (props.state.traverse.categories.add) {
         return (
-
             <div>
-                <AddCategory/>
+                <div className='level'>
+                    <div className='level-right'>
+                        <AddCategory className='level-item'/>
+                    </div>
+                    <div className='level-left'>
+                        <NavBar className='level-item'/>
+                    </div>
+                </div>
                 <CategoryBuilder deleteCategory={deleteCategory}/>
             </div>
         )
     } else if (props.state.traverse.categories.edit.editCategory) {
         return (
             <div>
-                <EditCategory/>
+                <div className='level'>
+                    <div className='level-left'>
+                        <EditCategory className='level-item'/>
+                    </div>
+                    <div className='level-right'>
+                        <NavBar className='level-item'/>
+                    </div>
+                </div>
                 <CategoryBuilder deleteCategory={deleteCategory}/>
             </div>
         )
     } else {
         return (
             <div>
-                <input type="button" value="Add" onClick={() => {
-                    props.addCategoryTraverse(!props.state.traverse.categories.add)
-                }}/>
+                <div className='level'>
+                    <div className='level-left'>
+                        <input type="button" className='level-item button button-left is-primary is-outlined' value="Add" onClick={() => {
+                            props.addCategoryTraverse(!props.state.traverse.categories.add)
+                        }}/>
+                    </div>
+                    <div className='level-right'>
+                        <NavBar className='level-item'/>
+                    </div>
+                </div>
                 <CategoryBuilder deleteCategory={deleteCategory}/>
             </div>
         )

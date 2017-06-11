@@ -4,24 +4,24 @@ import * as userActions from '../actions/user-actions';
 import {connect} from 'react-redux';
 import axios from 'axios';
 
-class CreateAccountForm extends Component{
-    constructor(props){
+class CreateAccountForm extends Component {
+    constructor(props) {
         super(props);
         this.createAccount = this.createAccount.bind(this);
     }
-    componentWillMount(){
+    componentWillMount() {
         console.log(this.props);
     }
-    createAccount(){
+    createAccount() {
         const payload = {
-            method:'POST',
+            method: 'POST',
             url: 'http://localhost:8000/users/create-user',
             body: {
                 first_name: document.getElementById('first-name').value,
-                last_name:document.getElementById('last-name').value,
-                email:document.getElementById('email').value,
-                hashed_password:document.getElementById('password').value,
-                age:document.getElementById('age').value
+                last_name: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                hashed_password: document.getElementById('password').value,
+                age: document.getElementById('age').value
             }
 
         };
@@ -29,22 +29,24 @@ class CreateAccountForm extends Component{
         //sessionStorage.setItem('user', res.data[0].user_id);
 
     }
-    render(){
-        return(
-            <div>
-                <input id = 'first-name' className = 'create-user-form-text' type="text" placeholder = 'First Name'/>
-                <input id = 'last-name' className = 'create-user-form-text' type="text" placeholder = 'Last Name'/>
-                <input id = 'email' className = 'create-user-form-text' type="email" placeholder = 'Email'/>
-                <input id = 'age' className = 'create-user-form-text' type="text" placeholder = 'Age'/>
-                <input id = 'password' className = 'create-user-form-text' type="password" placeholder = 'Password'/>
-                <input type="button" value="Create Account" onClick = {this.createAccount}/>
+    render() {
+        return (
+            <div id='create-account-form'>
+                <input id='first-name' className='create-user-form-text input is-info login-text ' type="text" placeholder='First Name'/>
+                <input id='last-name' className='create-user-form-text input is-info login-text' type="text" placeholder='Last Name'/>
+                <input id='email' className='create-user-form-text input is-info login-text' type="email" placeholder='Email'/>
+                <input id='age' className='create-user-form-text input is-info login-text' type="text" placeholder='Age'/>
+                <input id='password' className='create-user-form-text input is-info login-text' type="password" placeholder='Password'/>
+                <input type="button" value="Create Account" className='button is-medium is-primary' onClick={this.createAccount}/>
             </div>
         )
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return state;
 }
 
-export default connect(mapStateToProps,{...userActions})(CreateAccountForm);
+export default connect(mapStateToProps, {
+    ...userActions
+})(CreateAccountForm);

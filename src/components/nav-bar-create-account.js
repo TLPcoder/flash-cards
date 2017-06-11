@@ -2,14 +2,19 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-
-const NavBarCreateAccount = props =>{
-    return(
-        <div id = 'nav-bar-create-account'>
-            <h1 className = 'app-name'>Cyber Flash</h1>
-            <Link to='/'>Login</Link>
+const NavBarCreateAccount = props => {
+    return (
+        <div id='nav-bar-login' className='level'>
+            <div className='level-left'>
+                <h1 className='level-item title is-1'>Cyber Flash</h1>
+            </div>
+            <div className='left-right'>
+                <Link to='/' className='button is-primary level-item'>Login</Link>
+            </div>
         </div>
     )
 }
+
+
 
 export default NavBarCreateAccount;

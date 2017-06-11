@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as userActions from '../actions/user-actions';
 import axios from 'axios';
+import 'bulma/css/bulma.css';
 
 const LoginForm = props => {
     function checkLogin() {
@@ -23,14 +24,14 @@ const LoginForm = props => {
     }
 
     return (
-        <div id='LoginForm-container'>
-            <label>Email</label>
-            <input id='email-login' type="text" placeholder='email'/>
+        <div id ='flex-login'>
+        <div id='loginForm-container'>
+            <input id='email-login' className='input is-info login-text' type="text" placeholder='email'/>
             <br/>
-            <label>Password</label>
-            <input id='password-login' type="password" placeholder='password'/>
+            <input id='password-login' className='input is-info login-text' type="password" placeholder='password'/>
             <br/>
-            <input type="button" value='Login' onClick={checkLogin}/>
+            <input type="button" value='Login' className='button is-medium is-primary' onClick={checkLogin}/>
+        </div>
         </div>
     )
 

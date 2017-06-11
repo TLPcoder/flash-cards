@@ -12,7 +12,7 @@ export class AddFlashcard extends PureComponent {
             question: ''
         };
     }
-    changeState = ({ target }) => {
+    changeState = ({target}) => {
         if (target.id === 'add-flashcard-answer') {
             this.setState({answer: target.value});
         } else {
@@ -20,7 +20,7 @@ export class AddFlashcard extends PureComponent {
         }
     }
     addFlashcard = () => {
-        const { answer, question } = this.state;
+        const {answer, question} = this.state;
 
         const payload = {
             answer,
@@ -30,15 +30,22 @@ export class AddFlashcard extends PureComponent {
         this.props.addFlashcard(payload);
         this.props.addFlashcardTraverse(!this.props.traverse.flashcards.add)
     }
+    back = () => {
+        this.props.addFlashcardTraverse(!this.props.traverse.flashcards.add)
+    }
     render() {
         return (
             <div>
                 <input type="text" onChange={this.changeState} placeholder='question' id='add-flashcard-question'/>
                 <input type="text" onChange={this.changeState} placeholder='answer' id='add-flashcard-answer'/>
                 <input type="button" value='Create' onClick={this.addFlashcard}/>
+                <input type="button" value="Back" onClick={this.back}/>
             </div>
         )
     }
 }
 
-export default connect(({flashcards,traverse}) => ({flashcards,traverse}), {...profileActions,...traverse})(AddFlashcard);
+export default connect(({flashcards, traverse}) => ({flashcards, traverse}), {
+    ...profileActions,
+    ...traverse
+})(AddFlashcard);

@@ -23,15 +23,19 @@ const EditDeck = props => {
     }
     console.log('edit deck', props);
     return (
-        <div>
-            <input type="text" placeholder='Deck Name' id='edit-deck-name'/>
-            <input type="button" value='Update' onClick={updateDeck}/>
-            <input type="button" value='Back' onClick={() => {
-                props.editDeckTraverse({
-                    deckID: props.traverse.decks.edit.deckID,
-                    editDeck: !props.traverse.decks.edit.editDeck
-                });
-            }}/>
+        <div className='field has-addons'>
+            <p className='deck-add-text'>
+                <input className='input' type="text" placeholder='Deck Name' id='edit-deck-name'/>
+            </p>
+            <p className='edit-deck-contols'>
+                <input className='button is-primary is-outlined' type="button" value='Update' onClick={updateDeck}/>
+                <input className='button is-danger is-outlined' type="button" value='Back' onClick={() => {
+                    props.editDeckTraverse({
+                        deckID: props.traverse.decks.edit.deckID,
+                        editDeck: !props.traverse.decks.edit.editDeck
+                    });
+                }}/>
+            </p>
         </div>
     )
 }

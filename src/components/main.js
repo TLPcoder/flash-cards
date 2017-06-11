@@ -19,7 +19,7 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <Categories/>
+                <Categories router={this.props.router}/>
             </div>
         )
     }
