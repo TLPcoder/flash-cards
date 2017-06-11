@@ -17,14 +17,13 @@ const StudyAnswerQuestion = props => {
         props.editFlashcard(payload);
         props.edit();
     }
-    console.log('StudyAnswerQuestion', props);
     return (
         <div>
             <div className='study-edit-back'>
-                <input id='edit-study-flashcard-answer' className='button is-primary is-outlined' type="button" value="Update" onClick={edit}/>
-            <input className='button is-danger is-outlined' type="button" value='back' onClick={props.edit}/>
+                <input className='button is-primary is-outlined' type="button" value="Update" onClick={edit}/>
+                <input className='button is-danger is-outlined' type="button" value='back' onClick={props.edit}/>
             </div>
-            <textarea className='textarea-question' name="" id="edit-study-flashcard-question" cols="30" rows="10">{props.flashcards[props.study.counter].answer}</textarea>
+            <textarea className='textarea-question' name="" id="edit-study-flashcard-answer" cols="30" rows="10">{props.flashcards[props.study.counter].answer}</textarea>
         </div>
     )
 }

@@ -21,21 +21,24 @@ class CreateAccountForm extends Component {
                 last_name: document.getElementById('last-name').value,
                 email: document.getElementById('email').value,
                 hashed_password: document.getElementById('password').value,
-                age: document.getElementById('age').value
             }
 
         };
         this.props.createAccount(payload);
-        //sessionStorage.setItem('user', res.data[0].user_id);
-
     }
     render() {
+        if (this.props.users.user) {
+            console.log(this.props);
+            if(!this.props.users.emailUsed){
+                sessionStorage.setItem('user', this.props.users.data[0].user_id);
+                this.props.router.history.push('/profile');
+            }
+        }
         return (
             <div id='create-account-form'>
                 <input id='first-name' className='create-user-form-text input is-info login-text ' type="text" placeholder='First Name'/>
                 <input id='last-name' className='create-user-form-text input is-info login-text' type="text" placeholder='Last Name'/>
                 <input id='email' className='create-user-form-text input is-info login-text' type="email" placeholder='Email'/>
-                <input id='age' className='create-user-form-text input is-info login-text' type="text" placeholder='Age'/>
                 <input id='password' className='create-user-form-text input is-info login-text' type="password" placeholder='Password'/>
                 <input type="button" value="Create Account" className='button is-medium is-primary' onClick={this.createAccount}/>
             </div>

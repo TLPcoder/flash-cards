@@ -16,12 +16,14 @@ const Categories = props => {
     if (props.state.traverse.categories.add) {
         return (
             <div>
-                <div className='level nav-bar-main'>
-                    <div className='level-right'>
-                        <AddCategory className='level-item'/>
-                    </div>
-                    <div className='level-left'>
-                        <NavBar className='level-item'/>
+                <div className='nav-bar-main'>
+                    <div className='level'>
+                        <div className='level-left'>
+                            <AddCategory className='level-item'/>
+                        </div>
+                        <div className='level-right'>
+                            <NavBar className='level-item'/>
+                        </div>
                     </div>
                 </div>
                 <div className='category-container'>

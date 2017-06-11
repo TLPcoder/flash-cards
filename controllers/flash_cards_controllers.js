@@ -17,6 +17,7 @@ exports.getFlashCardDeck = (req, res) => {
     knex('field_of_study')
     .innerJoin('flash_card_deck','field_of_study.field_of_study_id', 'flash_card_deck.field_of_study_id')
     .where('field_of_study.field_of_study_id', req.params.field_of_study_id)
+    .orderBy('flash_card_deck_id')
     .then((data) => {
         res.json(data);
     }).catch((err) => {
@@ -26,13 +27,12 @@ exports.getFlashCardDeck = (req, res) => {
 
 exports.putFlashCards = (req,res) => {
     var body = req.body;
-    console.log('work please');
     knex('flash_card')
     .where('flash_card_id', body.flash_card_id)
     .update({question:body.question, answer:body.answer})
     .then(() => {
         return knex('flash_card').where('flash_card_deck_id', body.flash_card_deck_id)
-        .orderBy('question', 'desc');
+        .orderBy('flash_card_id');
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -49,7 +49,7 @@ exports.deleteFlashCardDeck = (req,res) => {
     .then(() => {
         return knex('flash_card_deck')
         .where('field_of_study_id', body.field_of_study_id)
-        .orderBy('created_at');
+        .orderBy('flash_card_deck_id');
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -64,7 +64,7 @@ exports.deleteFlashCards = (req,res) => {
     .del()
     .then(() => {
         return knex('flash_card').where('flash_card_deck_id', body.flash_card_deck_id)
-        .orderBy('created_at');
+        .orderBy('flash_card_id');
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -76,7 +76,7 @@ exports.getFlashCards = (req,res) => {
     knex('flash_card_deck')
     .innerJoin('flash_card', 'flash_card_deck.flash_card_deck_id', 'flash_card.flash_card_deck_id')
     .where('flash_card_deck.flash_card_deck_id', req.params.flash_card_deck_id)
-    .orderBy('flash_card_id', 'desc')
+    .orderBy('flash_card_id')
     .then((data) => {
         res.json(data);
     }).catch((err) => {
@@ -94,7 +94,7 @@ exports.postFlashCards = (req, res) => {
     }).then(() => {
         return knex('flash_card')
         .where('flash_card_deck_id', body.flash_card_deck_id)
-        .orderBy('created_at');
+        .orderBy('flash_card_id');
     }).then(data => {
         res.json(data);
     }).catch((err) => {
@@ -114,7 +114,7 @@ exports.putCategory = (req,res) => {
     }).then(() => {
         return knex('field_of_study')
         .where('user_id', body.user_id)
-        .orderBy('created_at');
+        .orderBy('field_of_study_id');
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -133,7 +133,7 @@ exports.postCategory = (req,res) => {
     }).then(() => {
         return knex('field_of_study')
         .where('user_id', body.user_id)
-        .orderBy('created_at');
+        .orderBy('field_of_study_id');
     }).then(data=>{
         res.json(data);
     }).catch(err => {
@@ -150,7 +150,7 @@ exports.deleteCategory = (req,res) =>{
     .then(() => {
         return knex('field_of_study')
         .where('user_id', body.user_id)
-        .orderBy('created_at');
+        .orderBy('field_of_study_id');
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -167,7 +167,7 @@ exports.postFlashCardDeck = (req, res) => {
     }).then(() => {
         return knex('flash_card_deck')
         .where('field_of_study_id', body.field_of_study_id)
-        .orderBy('created_at');
+        .orderBy('flash_card_deck_id');
     }).then(data =>{
         res.json(data);
     }).catch((err) => {
@@ -185,7 +185,7 @@ exports.putFlashCardDeck = (req,res) => {
     }).then(() => {
         return knex('flash_card_deck')
         .where('field_of_study_id', body.field_of_study_id)
-        .orderBy('created_at');
+        .orderBy('flash_card_deck_id');
     }).then(data => {
         res.json(data);
     }).catch(err => {

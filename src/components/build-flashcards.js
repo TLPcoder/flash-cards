@@ -8,11 +8,12 @@ import FaEdit from 'react-icons/lib/fa/edit';
 const BuildFlashCards = props => {
     console.log('BuildFlashCards', props);
     function editFlashcard({target}) {
+        var answer = document.getElementById('flashcard-answer').innerText.split('').slice(0,document.getElementById('flashcard-answer').innerText.split('').length-3).join('')
         props.editFlashcardTraverse({
             editFlashcard: !props.traverse.flashcards.edit.editFlashcard,
             flashcarID: target.name,
-            question: document.getElementById('flashcard-question').value,
-            answer: document.getElementById('flashcard-answer').value
+            question: document.getElementById('flashcard-question').innerText,
+            answer: answer
         });
     }
     function buildFlashcards() {
@@ -23,13 +24,13 @@ const BuildFlashCards = props => {
                         <div className='level flashcard-contolers'>
                             <div className='level-left'></div>
                             <div className='level-right'>
-                                <button className='is-primary is-outlined level-item' id='edit-button' name={el.flash_card_id} onClick={editFlashcard}><FaEdit/></button>
-                            <button className='delete delete-button' name={el.flash_card_id} onClick={props.flashcards.deleteFlashCard}></button>
+                                <button className='is-primary is-outlined level-item' id='edit-button' name={el.flash_card_id} onClick={editFlashcard}>Edit</button>
+                                <button className='delete delete-button' name={el.flash_card_id} onClick={props.flashcards.deleteFlashCard}></button>
                             </div>
                         </div>
                         <h4 className='level-item' id='flashcard-question'>{el.question.slice(0, 40)}</h4>
                         <br/>
-                    <h4 id='flashcard-answer'>{el.answer.slice(0, 50)}...</h4>
+                        <h4 id='flashcard-answer'>{el.answer.slice(0, 50)}...</h4>
                     </div>
                 </div>
             )
@@ -41,10 +42,3 @@ const BuildFlashCards = props => {
 }
 
 export default connect(({traverse}) => ({traverse}), traverse)(BuildFlashCards);
-
-{/* <input className='button is-danger is-outlined' name={el.flash_card_id} onClick={props.flashcards.deleteFlashCard}/> */
-}
-{/* <input className='button is-primary is-outlined' type="button" value="edit" name={el.flash_card_id} onClick={editFlashcard}/>
-
-<button className='button is-primary is-outlined' name={el.flash_card_id} onClick={editFlashcard}><FaEdit/></button> */
-}
