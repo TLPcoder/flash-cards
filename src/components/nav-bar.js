@@ -11,7 +11,7 @@ const NavBar = props => {
         sessionStorage.clear();
     }
     return (
-        <Link to='/' className = 'button is-primary nav-bar-logout' onClick={logout}>Logout</Link>
+        <Link to='/' className = 'button is-primary fix-nav nav-bar-logout' onClick={logout}>Logout</Link>
     )
 }
 function mapStateToProps(state){

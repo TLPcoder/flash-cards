@@ -6,6 +6,7 @@ import LoginForm from './login-form';
 const LoginPage = props => {
     return (
         <div>
+            <div id = "background-image"></div>
             <NavBarLogin router={props}/>
             <LoginForm router={props}/>
         </div>

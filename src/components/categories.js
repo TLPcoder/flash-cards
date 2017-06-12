@@ -16,13 +16,21 @@ const Categories = props => {
     if (props.state.categories.length === 0 && !props.state.traverse.categories.add) {
         return (
             <div>
-                <div className='level'>
-                    <div className='level-left'></div>
-                    <div className='level-right'>
-                        <NavBar className='level-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <input type="button" className='center-catergory-button level-item button is-large button-left is-primary is-outlined no-category-button' value="Add First Category" onClick={() => {
+                <input type="button" className='background-white center-catergory-button level-item button is-large button-left is-primary no-category-button' value="Add First Subject" onClick={() => {
                     props.addCategoryTraverse(!props.state.traverse.categories.add)
                 }}/>
             </div>
@@ -30,13 +38,21 @@ const Categories = props => {
     } else if (props.state.traverse.categories.add && props.state.categories.length !== 0) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <AddCategory className='level-item'/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
+                                <AddCategory/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,13 +64,21 @@ const Categories = props => {
     } else if (props.state.traverse.categories.edit.editCategory) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <EditCategory className='level-item'/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
+                                <EditCategory/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar className='nav-item'/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -66,29 +90,45 @@ const Categories = props => {
     } else if (props.state.traverse.categories.add && props.state.categories.length === 0) {
         return (
             <div>
-                <div className='level'>
-                    <div className='level-left'></div>
-                    <div className='level-right'>
-                        <NavBar className='level-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className='center-catergory'>
-                    <AddCategory className='level-item'/>
+                <div className='center-catergory background-color'>
+                    <AddCategory className='nav-item'/>
                 </div>
             </div>
         )
     } else {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <input type="button" className='level-item button button-left is-primary is-outlined' value="Add" onClick={() => {
-                                props.addCategoryTraverse(!props.state.traverse.categories.add)
-                            }}/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item'>
+                                <input type="button" className='fix-nav button button-left is-primary is-outlined' value="Add" onClick={() => {
+                                    props.addCategoryTraverse(!props.state.traverse.categories.add)
+                                }}/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>

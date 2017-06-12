@@ -11,13 +11,21 @@ import Study from './study';
 import NavBar from './nav-bar';
 
 const FlashCards = props => {
-    if(props.flashcards.length === 0 && props.traverse.flashcards.add){
-        return(
+    if (props.flashcards.length === 0 && props.traverse.flashcards.add) {
+        return (
             <div>
-                <div className='level'>
-                    <div className='level-left'></div>
-                    <div className='level-right'>
-                        <NavBar className='level-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='center-flashcard'>
@@ -27,35 +35,50 @@ const FlashCards = props => {
                 </div>
             </div>
         )
-    }
-    else if(props.flashcards.length === 0){
-        return(
+    } else if (props.flashcards.length === 0) {
+        return (
             <div>
-                <div className='level'>
-                    <div className='level-left'></div>
-                    <div className='level-right'>
-                        <NavBar className='level-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='center-flashcard-button'>
-                    <input className='button is-large is-primary is-outlined' type="button" value='Add First Category' onClick={() => {
+                    <input className='button is-large is-primary' type="button" value='Add First Flashcard' onClick={() => {
                         props.addFlashcardTraverse(!props.traverse.flashcards.add)
                     }}/>
                 </div>
             </div>
         )
-    }else if (props.traverse.flashcards.add) {
+    } else if (props.traverse.flashcards.add) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <AddFlashcard className='level-item' add={{
-                                location: props.flashcard.location
-                            }}/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
+                                <AddFlashcard add={{
+                                    location: props.flashcard.location
+                                }}/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,15 +93,23 @@ const FlashCards = props => {
     } else if (props.traverse.flashcards.edit.editFlashcard) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <EditFlashcard className='level-item' edit={{
-                                location: props.flashcard.location
-                            }}/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
+                                <EditFlashcard edit={{
+                                    location: props.flashcard.location
+                                }}/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -91,20 +122,23 @@ const FlashCards = props => {
             </div>
         )
     } else if (props.traverse.flashcards.study) {
-        console.log('lkfjsad;fjal;ksdfjlksadjflk;sadjf', props);
         return (
             <div>
-                <StudyNavBar/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <StudyNavBar/>
+                </div>
                 <Study/>
             </div>
         )
     } else {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <div className='level-item'>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
                                 <input className='button is-primary is-outlined flashcard-buttons' type="button" value='Study' onClick={() => {
                                     props.studyFlashcardTraverse(!props.traverse.flashcards.study)
                                 }}/>
@@ -113,8 +147,13 @@ const FlashCards = props => {
                                 }}/>
                             </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>

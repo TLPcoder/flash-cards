@@ -10,6 +10,7 @@ class CreateAccount extends Component {
     render() {
         return (
             <div>
+                <div id = "background-image"></div>
                 <NavBarCreateAccount/>
                 <CreateAccountForm router={this.props}/>
             </div>

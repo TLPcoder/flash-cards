@@ -7,6 +7,22 @@
     height: 80px;
 }
 
+body{
+    padding-bottom: 20px;
+}
+
+#background-image{
+    background-image:url('https://static.pexels.com/photos/27665/pexels-photo-27665.jpg');
+    width:100%;
+    z-index: -5;
+    height:100vh;
+    position: fixed;
+    background-size:cover;
+    background-position:center center;
+    background-attachment:fixed;
+    padding-bottom: 1000px;
+}
+
 h4 {
     font-family: sans-serif;
 }
@@ -65,6 +81,10 @@ h4 {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 90px;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
 }
 
 .nav-bar-main{
@@ -138,15 +158,16 @@ h4 {
 .categories-card {
     background-color: #F5F5F5;
     margin-top: 30px;
+    border:solid 1px #cecece;
+    border-radius: 5px;
 }
 
 .deck-cards {
     background-color: #F5F5F5;
     margin-top: 30px;
     margin-right: 10px;
-    /*float:left;*/
-    /*height:200px;
-    width:200px;*/
+    border:solid 1px #cecece;
+    border-radius: 5px;
 }
 
 .category-card-contoler {
@@ -412,4 +433,37 @@ hr {
 }
 .center-catergory input[type='text'],.center-deck input[type='text'],.center-flashcard input[type='text']{
     font-size: 25px;
+}
+
+.fix-nav{
+    position: relative;
+    bottom:7px;
+}
+
+.move-right{
+    position: relative;
+    left:45px;
+}
+
+.title-main{
+    margin-top: 10px;
+    border-right: solid black 2px;
+    border-left: solid black 2px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+.fix-me-please1{
+    position: relative;
+    bottom:26px;
+}
+.account-button {
+    position: relative;
+    bottom:26px;
+}
+
+.background-white input[type='button']{
+    background-color: #00D1B2 !important;
 }

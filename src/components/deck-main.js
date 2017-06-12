@@ -12,31 +12,47 @@ const DeckMain = props => {
     if (props.decks.length === 0 && props.traverse.decks.add) {
         return (
             <div>
-                <div className='level'>
-                    <div className='level-right'></div>
-                    <div className='level-left'>
-                        <NavBar router={{
-                            location: props.router.location
-                        }} className='level-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }}/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='center-deck'>
-                    <AddDeck className='level-item' location={props.router.location}/>
+                    <AddDeck location={props.router.location}/>
                 </div>
             </div>
         )
     } else if (props.traverse.decks.add) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-right'>
-                            <AddDeck className='level-item' location={props.router.location}/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
+                                <AddDeck location={props.router.location}/>
+                            </div>
                         </div>
-                        <div className='level-left'>
-                            <NavBar router={{
-                                location: props.router.location
-                            }} className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar className='nav-item' router={{
+                                    location: props.router.location
+                                }}/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -51,16 +67,24 @@ const DeckMain = props => {
     } else if (props.decks.length === 0) {
         return (
             <div>
-                <div className='level'>
-                    <div className='level-right'></div>
-                    <div className='level-left'>
-                        <NavBar router={{
-                            location: props.router.location
-                        }} className='level-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }} className='nav-item'/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <input className='center-deck-button is-large level-item button is-primary is-outlined add-deck' type="button" value='Add First Deck' onClick={() => {
+                    <input className='center-deck-button is-large level-item button is-primary add-deck' type="button" value='Add First Deck' onClick={() => {
                         props.addDeckTraverse(!props.traverse.decks.add)
                     }}/>
                 </div>
@@ -69,17 +93,25 @@ const DeckMain = props => {
     } else if (props.traverse.decks.edit.editDeck) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <EditDeck className='level-item' edit={{
-                                router: props.router
-                            }}/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item fix-nav'>
+                                <EditDeck edit={{
+                                    router: props.router
+                                }}/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item' router={{
-                                location: props.router.location
-                            }} className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }}/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,17 +126,25 @@ const DeckMain = props => {
     } else {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
-                    <div className='level'>
-                        <div className='level-left'>
-                            <input className='level-item button is-primary is-outlined add-deck' type="button" value='Add' onClick={() => {
-                                props.addDeckTraverse(!props.traverse.decks.add)
-                            }}/>
+                    <div className='nav'>
+                        <div className='nav-left'>
+                            <div className='nav-item'>
+                                <input className='button fix-nav is-primary is-outlined add-deck' type="button" value='Add' onClick={() => {
+                                    props.addDeckTraverse(!props.traverse.decks.add)
+                                }}/>
+                            </div>
                         </div>
-                        <div className='level-right'>
-                            <NavBar className='level-item' router={{
-                                location: props.router.location
-                            }} className='level-item'/>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }}/>
+                            </div>
                         </div>
                     </div>
                 </div>
