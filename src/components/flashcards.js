@@ -11,7 +11,40 @@ import Study from './study';
 import NavBar from './nav-bar';
 
 const FlashCards = props => {
-    if (props.traverse.flashcards.add) {
+    if(props.flashcards.length === 0 && props.traverse.flashcards.add){
+        return(
+            <div>
+                <div className='level'>
+                    <div className='level-left'></div>
+                    <div className='level-right'>
+                        <NavBar className='level-item'/>
+                    </div>
+                </div>
+                <div className='center-flashcard'>
+                    <AddFlashcard className='level-item' add={{
+                        location: props.flashcard.location
+                    }}/>
+                </div>
+            </div>
+        )
+    }
+    else if(props.flashcards.length === 0){
+        return(
+            <div>
+                <div className='level'>
+                    <div className='level-left'></div>
+                    <div className='level-right'>
+                        <NavBar className='level-item'/>
+                    </div>
+                </div>
+                <div className='center-flashcard-button'>
+                    <input className='button is-large is-primary is-outlined' type="button" value='Add First Category' onClick={() => {
+                        props.addFlashcardTraverse(!props.traverse.flashcards.add)
+                    }}/>
+                </div>
+            </div>
+        )
+    }else if (props.traverse.flashcards.add) {
         return (
             <div>
                 <div className='nav-bar-main'>
@@ -72,10 +105,10 @@ const FlashCards = props => {
                     <div className='level'>
                         <div className='level-left'>
                             <div className='level-item'>
-                                <input className='button is-primary flashcard-buttons' type="button" value='Study' onClick={() => {
+                                <input className='button is-primary is-outlined flashcard-buttons' type="button" value='Study' onClick={() => {
                                     props.studyFlashcardTraverse(!props.traverse.flashcards.study)
                                 }}/>
-                                <input className='button is-danger flashcard-buttons-1' type="button" value='Add' onClick={() => {
+                                <input className='button is-danger is-outlined flashcard-buttons-1' type="button" value='Add' onClick={() => {
                                     props.addFlashcardTraverse(!props.traverse.flashcards.add)
                                 }}/>
                             </div>

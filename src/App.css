@@ -386,22 +386,30 @@ hr {
     top:100px;
 }
 
-.center-deck-button,.center-catergory-button{
+.center-deck-button,.center-catergory-button,.center-flashcard-button{
     width:250px;
     margin: auto;
     position: relative;
     top:210px;
 }
-.center-catergory, .center-deck{
+.center-catergory, .center-deck, .center-flashcard{
     width:600px;
     margin: auto;
     position: relative;
     top: 180px;
 }
 
-.center-catergory input[type='button'],.center-deck input[type='button']{
+.center-flashcard{
+    width:600px;
+    margin: auto;
+    position: relative;
+    top: 210px;
+    right:110px;
+}
+
+.center-catergory input[type='button'],.center-deck input[type='button'],.center-flashcard input[type='button']{
     font-size: 25px;
 }
-.center-catergory input[type='text'],.center-deck input[type='text']{
+.center-catergory input[type='text'],.center-deck input[type='text'],.center-flashcard input[type='text']{
     font-size: 25px;
 }
