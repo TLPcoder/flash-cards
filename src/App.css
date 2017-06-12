@@ -463,3 +463,7 @@ hr {
     position: relative;
     bottom:26px;
 }
+
+.background-white input[type='button']{
+    background-color: #00D1B2 !important;
+}

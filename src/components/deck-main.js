@@ -84,7 +84,7 @@ const DeckMain = props => {
                     </div>
                 </div>
                 <div>
-                    <input className='center-deck-button is-large level-item button is-primary is-outlined add-deck' type="button" value='Add First Deck' onClick={() => {
+                    <input className='center-deck-button is-large level-item button is-primary add-deck' type="button" value='Add First Deck' onClick={() => {
                         props.addDeckTraverse(!props.traverse.decks.add)
                     }}/>
                 </div>

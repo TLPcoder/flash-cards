@@ -30,7 +30,7 @@ const Categories = props => {
                         </div>
                     </div>
                 </div>
-                <input type="button" className='center-catergory-button level-item button is-large button-left is-primary is-outlined no-category-button' value="Add First Subject" onClick={() => {
+                <input type="button" className='background-white center-catergory-button level-item button is-large button-left is-primary no-category-button' value="Add First Subject" onClick={() => {
                     props.addCategoryTraverse(!props.state.traverse.categories.add)
                 }}/>
             </div>
@@ -104,7 +104,7 @@ const Categories = props => {
                         </div>
                     </div>
                 </div>
-                <div className='center-catergory'>
+                <div className='center-catergory background-color'>
                     <AddCategory className='nav-item'/>
                 </div>
             </div>

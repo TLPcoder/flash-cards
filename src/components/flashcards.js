@@ -53,7 +53,7 @@ const FlashCards = props => {
                     </div>
                 </div>
                 <div className='center-flashcard-button'>
-                    <input className='button is-large is-primary is-outlined' type="button" value='Add First Flashcard' onClick={() => {
+                    <input className='button is-large is-primary' type="button" value='Add First Flashcard' onClick={() => {
                         props.addFlashcardTraverse(!props.traverse.flashcards.add)
                     }}/>
                 </div>
