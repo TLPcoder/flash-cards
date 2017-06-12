@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import {connect} from 'react-redux';
-import * as traverse from '../actions/traversing-actions';
+import * as traverse from '../../actions/traversing-actions';
 import FaClose from 'react-icons/lib/fa/close';
 import FaEdit from 'react-icons/lib/fa/edit';
 

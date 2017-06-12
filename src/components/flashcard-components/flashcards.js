@@ -1,14 +1,14 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as profileActions from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as profileActions from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 import AddFlashcard from './add-flashcard';
 import BuildFlashCards from './build-flashcards';
 import EditFlashcard from './edit-flashcard';
-import StudyNavBar from './study-nav-bar';
-import Study from './study';
-import NavBar from './nav-bar';
+import StudyNavBar from '../study-nav-bar';
+import Study from '../study';
+import NavBar from '../nav-bar';
 
 const FlashCards = props => {
     if (props.flashcards.length === 0 && props.traverse.flashcards.add) {
