@@ -10,7 +10,7 @@ const NavBarLogin = props => {
                 <h1 className='level-item title is-1'>Cyber Flash</h1>
             </div>
             <div className='left-right margin-right'>
-                <Link to='/create-account' className='button is-primary level-item'>Create Account</Link>
+                <Link to='/create-account' className='button is-primary level-item account-button'>Create Account</Link>
             </div>
         </div>
     )

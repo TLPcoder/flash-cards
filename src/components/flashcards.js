@@ -14,14 +14,17 @@ const FlashCards = props => {
     if (props.flashcards.length === 0 && props.traverse.flashcards.add) {
         return (
             <div>
-                <div className='nav'>
-                    <div className='nav-left'></div>
-                    <div className='nav-center'>
-                        <h1 className='title-main'>Flashcards</h1>
-                    </div>
-                    <div className='nav-right'>
-                        <div className='nav-item'>
-                            <NavBar/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,19 +38,22 @@ const FlashCards = props => {
     } else if (props.flashcards.length === 0) {
         return (
             <div>
-                <div className='nav'>
-                    <div className='nav-left'></div>
-                    <div className='nav-center'>
-                        <h1 className='title-main'>Flashcards</h1>
-                    </div>
-                    <div className='nav-right'>
-                        <div className='nav-item'>
-                            <NavBar/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className='center-flashcard-button'>
-                    <input className='button is-large is-primary is-outlined' type="button" value='Add First Category' onClick={() => {
+                    <input className='button is-large is-primary is-outlined' type="button" value='Add First Flashcard' onClick={() => {
                         props.addFlashcardTraverse(!props.traverse.flashcards.add)
                     }}/>
                 </div>
@@ -56,6 +62,7 @@ const FlashCards = props => {
     } else if (props.traverse.flashcards.add) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
@@ -86,6 +93,7 @@ const FlashCards = props => {
     } else if (props.traverse.flashcards.edit.editFlashcard) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
@@ -116,13 +124,17 @@ const FlashCards = props => {
     } else if (props.traverse.flashcards.study) {
         return (
             <div>
-                <StudyNavBar/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <StudyNavBar/>
+                </div>
                 <Study/>
             </div>
         )
     } else {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>

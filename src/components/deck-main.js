@@ -12,16 +12,19 @@ const DeckMain = props => {
     if (props.decks.length === 0 && props.traverse.decks.add) {
         return (
             <div>
-                <div className='nav'>
-                    <div className='nav-left'></div>
-                    <div className='nav-center'>
-                        <h1 className='title-main'>Deck</h1>
-                    </div>
-                    <div className='nav-right'>
-                        <div className='nav-item'>
-                            <NavBar router={{
-                                location: props.router.location
-                            }}/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }}/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -33,6 +36,7 @@ const DeckMain = props => {
     } else if (props.traverse.decks.add) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
@@ -63,16 +67,19 @@ const DeckMain = props => {
     } else if (props.decks.length === 0) {
         return (
             <div>
-                <div className='nav'>
-                    <div className='nav-left'></div>
-                    <div className='nav-center'>
-                        <h1 className='title-main'>Deck</h1>
-                    </div>
-                    <div className='nav-right'>
-                        <div className='nav-item'>
-                            <NavBar router={{
-                                location: props.router.location
-                            }} className='nav-item'/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }} className='nav-item'/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,6 +93,7 @@ const DeckMain = props => {
     } else if (props.traverse.decks.edit.editDeck) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
@@ -118,6 +126,7 @@ const DeckMain = props => {
     } else {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>

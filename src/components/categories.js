@@ -16,18 +16,21 @@ const Categories = props => {
     if (props.state.categories.length === 0 && !props.state.traverse.categories.add) {
         return (
             <div>
-                <div className='nav'>
-                    <div className='nav-left'></div>
-                    <div className='nav-center'>
-                        <h1 className='title-main'>Subjects</h1>
-                    </div>
-                    <div className='nav-right'>
-                        <div className='nav-item'>
-                            <NavBar/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <input type="button" className='center-catergory-button level-item button is-large button-left is-primary is-outlined no-category-button' value="Add First Category" onClick={() => {
+                <input type="button" className='center-catergory-button level-item button is-large button-left is-primary is-outlined no-category-button' value="Add First Subject" onClick={() => {
                     props.addCategoryTraverse(!props.state.traverse.categories.add)
                 }}/>
             </div>
@@ -35,6 +38,7 @@ const Categories = props => {
     } else if (props.state.traverse.categories.add && props.state.categories.length !== 0) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
@@ -60,6 +64,7 @@ const Categories = props => {
     } else if (props.state.traverse.categories.edit.editCategory) {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
@@ -85,14 +90,17 @@ const Categories = props => {
     } else if (props.state.traverse.categories.add && props.state.categories.length === 0) {
         return (
             <div>
-                <div className='nav'>
-                    <div className='nav-left'></div>
-                    <div className='nav-center'>
-                        <h1 className='title-main'>Subjects</h1>
-                    </div>
-                    <div className='nav-right'>
-                        <div className='nav-item'>
-                            <NavBar/>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,6 +112,7 @@ const Categories = props => {
     } else {
         return (
             <div>
+                <div id="background-image"></div>
                 <div className='nav-bar-main'>
                     <div className='nav'>
                         <div className='nav-left'>
