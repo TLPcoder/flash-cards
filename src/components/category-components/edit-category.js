@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
 import {connect} from 'react-redux';
-import * as flashCards from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as flashCards from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 
 const EditCategory = props => {
     function editCategory() {

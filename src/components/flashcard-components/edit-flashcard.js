@@ -1,8 +1,8 @@
 'use strict';
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import * as profileActions from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as profileActions from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 
 export class EditFlashcard extends PureComponent {
     constructor(props) {
@@ -35,7 +35,7 @@ export class EditFlashcard extends PureComponent {
             flash_card_deck_id: this.props.edit.location.pathname.split('/')[2],
             flash_card_id: this.props.traverse.flashcards.edit.flashcarID
         };
-        console.log('payload bro', payload);
+        ('payload bro', payload);
         this.props.editFlashcard(payload);
         this.editedFlashCard();
     }

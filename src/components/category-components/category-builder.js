@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import {connect} from 'react-redux';
-import * as traverse from '../actions/traversing-actions';
+import * as traverse from '../../actions/traversing-actions';
 import {Link} from 'react-router-dom';
 
 const CategoryBuilder = props => {
@@ -12,7 +12,6 @@ const CategoryBuilder = props => {
         });
     }
     function buildCategories() {
-        console.log('buildCategoriesasfdsfsdf', props);
         return props.categories.map(el => {
             var toDeck = `/deck/${el.field_of_study_id}`;
             return (

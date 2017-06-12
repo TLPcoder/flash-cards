@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
 import {connect} from 'react-redux';
-import * as profileActions from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as profileActions from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 
 const EditDeck = props => {
     function updateDeck() {
@@ -21,7 +21,6 @@ const EditDeck = props => {
             editDeck: !props.traverse.decks.edit.editDeck
         });
     }
-    console.log('edit deck', props);
     return (
         <div className='field has-addons'>
             <p className='deck-add-text'>

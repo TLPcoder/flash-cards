@@ -4,11 +4,10 @@ import axios from 'axios';
 import * as types from '../actions/action-types';
 
 export function * login({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'POST',
+        url:`http://localhost:8000/users/login`,
+        data: payload
     };
 
     try {
@@ -20,12 +19,10 @@ export function * login({payload}) {
 }
 
 export function * createAccount({payload}){
-    console.log('hello');
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'POST',
+        url:'http://localhost:8000/users/create-user',
+        data: payload
     };
     try{
         const data = yield call(axios, config);

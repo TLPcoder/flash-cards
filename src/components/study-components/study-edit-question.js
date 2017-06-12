@@ -2,9 +2,9 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import * as studyActions from '../actions/study-actions';
-import * as traverse from '../actions/traversing-actions';
-import {editFlashcard} from '../actions/profile-actions';
+import * as studyActions from '../../actions/study-actions';
+import * as traverse from '../../actions/traversing-actions';
+import {editFlashcard} from '../../actions/profile-actions';
 
 const StudyEditQuestion = props => {
     function edit() {

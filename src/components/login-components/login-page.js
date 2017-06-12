@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
-import NavBarLogin from './nav-bar-login';
+import NavBarLogin from '../nav-bar-login';
 import LoginForm from './login-form';
 
 const LoginPage = props => {

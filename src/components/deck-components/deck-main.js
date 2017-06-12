@@ -1,12 +1,12 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as profileActions from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as profileActions from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 import AddDeck from './add-deck';
 import EditDeck from './edit-deck';
 import BuildDeck from './build-deck';
-import NavBar from './nav-bar';
+import NavBar from '../nav-bar';
 
 const DeckMain = props => {
     if (props.decks.length === 0 && props.traverse.decks.add) {
