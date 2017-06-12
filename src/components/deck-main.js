@@ -9,7 +9,23 @@ import BuildDeck from './build-deck';
 import NavBar from './nav-bar';
 
 const DeckMain = props => {
-    if (props.traverse.decks.add) {
+    if (props.decks.length === 0 && props.traverse.decks.add) {
+        return (
+            <div>
+                <div className='level'>
+                    <div className='level-right'></div>
+                    <div className='level-left'>
+                        <NavBar router={{
+                            location: props.router.location
+                        }} className='level-item'/>
+                    </div>
+                </div>
+                <div className='center-deck'>
+                    <AddDeck className='level-item' location={props.router.location}/>
+                </div>
+            </div>
+        )
+    } else if (props.traverse.decks.add) {
         return (
             <div>
                 <div className='nav-bar-main'>
@@ -28,6 +44,24 @@ const DeckMain = props => {
                     <BuildDeck decks={{
                         data: props.decks,
                         deleteDeck: props.router.deleteDeck
+                    }}/>
+                </div>
+            </div>
+        )
+    } else if (props.decks.length === 0) {
+        return (
+            <div>
+                <div className='level'>
+                    <div className='level-right'></div>
+                    <div className='level-left'>
+                        <NavBar router={{
+                            location: props.router.location
+                        }} className='level-item'/>
+                    </div>
+                </div>
+                <div>
+                    <input className='center-deck-button is-large level-item button is-primary is-outlined add-deck' type="button" value='Add First Deck' onClick={() => {
+                        props.addDeckTraverse(!props.traverse.decks.add)
                     }}/>
                 </div>
             </div>

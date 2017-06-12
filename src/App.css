@@ -386,22 +386,22 @@ hr {
     top:100px;
 }
 
-.center-catergory-button{
+.center-deck-button,.center-catergory-button{
     width:250px;
     margin: auto;
     position: relative;
-    top:200px;
+    top:210px;
 }
-.center-catergory{
+.center-catergory, .center-deck{
     width:600px;
     margin: auto;
     position: relative;
     top: 180px;
 }
 
-.center-catergory input[type='button']{
+.center-catergory input[type='button'],.center-deck input[type='button']{
     font-size: 25px;
 }
-.center-catergory input[type='text']{
+.center-catergory input[type='text'],.center-deck input[type='text']{
     font-size: 25px;
 }
