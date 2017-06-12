@@ -413,3 +413,23 @@ hr {
 .center-catergory input[type='text'],.center-deck input[type='text'],.center-flashcard input[type='text']{
     font-size: 25px;
 }
+
+.fix-nav{
+    position: relative;
+    bottom:7px;
+}
+
+.move-right{
+    position: relative;
+    left:45px;
+}
+
+.title-main{
+    margin-top: 10px;
+    border-right: solid black 2px;
+    border-left: solid black 2px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
