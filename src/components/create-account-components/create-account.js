@@ -1,21 +1,16 @@
 'use strict';
-import React, {Component} from 'react';
+import React from 'react';
 import NavBarCreateAccount from './nav-bar-create-account';
 import CreateAccountForm from './create-account-form';
 
-class CreateAccount extends Component {
-    constructor(props) {
-        super(props)
-    }
-    render() {
+const CreateAccount = props => {
         return (
             <div>
                 <div id = "background-image"></div>
                 <NavBarCreateAccount/>
-                <CreateAccountForm router={this.props}/>
+                <CreateAccountForm router={props}/>
             </div>
         )
-    }
 }
 
 export default CreateAccount;

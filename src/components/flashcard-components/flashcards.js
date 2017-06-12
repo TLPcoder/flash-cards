@@ -6,8 +6,8 @@ import * as traverse from '../../actions/traversing-actions';
 import AddFlashcard from './add-flashcard';
 import BuildFlashCards from './build-flashcards';
 import EditFlashcard from './edit-flashcard';
-import StudyNavBar from '../study-nav-bar';
-import Study from '../study';
+import StudyNavBar from '../study-components/study-nav-bar';
+import Study from '../study-components/study';
 import NavBar from '../nav-bar';
 
 const FlashCards = props => {
