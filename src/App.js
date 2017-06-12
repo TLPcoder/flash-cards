@@ -6,7 +6,7 @@ import './App.css';
 import LoginPage from './components/login-page';
 import CreateAccount from './components/create-account';
 import Profile from './components/category-components/profile';
-import Deck from './components/deck';
+import Deck from './components/deck-components/deck';
 import FlashCardsMain from './components/flashcards-main';
 import {Switch, Route} from 'react-router-dom';
 

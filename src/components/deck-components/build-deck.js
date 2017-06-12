@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import * as traverse from '../actions/traversing-actions';
+import * as traverse from '../../actions/traversing-actions';
 
 const BuildDeck = props => {
     function editDeck({target}) {

@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
 import {connect} from 'react-redux';
-import * as profileActions from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as profileActions from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 
 const EditDeck = props => {
     function updateDeck() {

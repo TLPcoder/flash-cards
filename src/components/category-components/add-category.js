@@ -5,7 +5,6 @@ import * as flashCards from '../../actions/profile-actions';
 import * as traverse from '../../actions/traversing-actions';
 
 const AddCategory = props => {
-
     function createCategory() {
         var payload = {
             user_id: sessionStorage.getItem('user'),

@@ -35,7 +35,7 @@ export class EditFlashcard extends PureComponent {
             flash_card_deck_id: this.props.edit.location.pathname.split('/')[2],
             flash_card_id: this.props.traverse.flashcards.edit.flashcarID
         };
-        console.log('payload bro', payload);
+        ('payload bro', payload);
         this.props.editFlashcard(payload);
         this.editedFlashCard();
     }
