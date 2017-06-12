@@ -6,7 +6,6 @@ import FaClose from 'react-icons/lib/fa/close';
 import FaEdit from 'react-icons/lib/fa/edit';
 
 const BuildFlashCards = props => {
-    console.log('BuildFlashCards', props);
     function editFlashcard({target}) {
         var answer = document.getElementById('flashcard-answer').innerText.split('').slice(0,document.getElementById('flashcard-answer').innerText.split('').length-3).join('')
         props.editFlashcardTraverse({

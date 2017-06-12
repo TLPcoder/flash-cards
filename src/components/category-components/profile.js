@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import Main from './main';
-import NavBar from './nav-bar';
+import NavBar from '../nav-bar';
 
 const Profile = props => {
     return (

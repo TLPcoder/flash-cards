@@ -1,7 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as profileActions from '../actions/profile-actions';
+import * as profileActions from '../../actions/profile-actions';
 import Categories from './categories';
 
 class Main extends Component {

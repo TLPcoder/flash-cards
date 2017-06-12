@@ -1,12 +1,12 @@
 'use strict';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as flashCards from '../actions/profile-actions';
-import * as traverse from '../actions/traversing-actions';
+import * as flashCards from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 import AddCategory from './add-category';
 import EditCategory from './edit-category';
 import CategoryBuilder from './category-builder';
-import NavBar from './nav-bar';
+import NavBar from '../nav-bar';
 
 const Categories = props => {
     function deleteCategory({target}) {

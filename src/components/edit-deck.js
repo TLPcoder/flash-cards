@@ -21,7 +21,6 @@ const EditDeck = props => {
             editDeck: !props.traverse.decks.edit.editDeck
         });
     }
-    console.log('edit deck', props);
     return (
         <div className='field has-addons'>
             <p className='deck-add-text'>

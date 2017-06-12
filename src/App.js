@@ -5,7 +5,7 @@ import './App.css';
 // import PeopleContainer from './components/PeopleContainer';
 import LoginPage from './components/login-page';
 import CreateAccount from './components/create-account';
-import Profile from './components/profile';
+import Profile from './components/category-components/profile';
 import Deck from './components/deck';
 import FlashCardsMain from './components/flashcards-main';
 import {Switch, Route} from 'react-router-dom';

@@ -19,7 +19,6 @@ const LoginForm = props => {
     }
 
     if (props.users.user) {
-        console.log('dskfjlksdjflksd',props.users);
         sessionStorage.setItem('user', props.users.data[0].user_id);
         props.router.history.push('/profile');
     }

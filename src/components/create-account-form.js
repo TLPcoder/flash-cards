@@ -9,9 +9,6 @@ class CreateAccountForm extends Component {
         super(props);
         this.createAccount = this.createAccount.bind(this);
     }
-    componentWillMount() {
-        console.log(this.props);
-    }
     createAccount() {
         const payload = {
             method: 'POST',
@@ -28,7 +25,6 @@ class CreateAccountForm extends Component {
     }
     render() {
         if (this.props.users.user) {
-            console.log(this.props);
             if(!this.props.users.emailUsed){
                 sessionStorage.setItem('user', this.props.users.data[0].user_id);
                 this.props.router.history.push('/profile');
