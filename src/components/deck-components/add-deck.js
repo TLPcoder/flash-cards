@@ -5,9 +5,10 @@ import * as profileActions from '../../actions/profile-actions';
 import * as traverse from '../../actions/traversing-actions';
 
 const AddDeck = props => {
+    var deckName;
     function addDeck() {
         const payload = {
-            flash_card_deck_name: document.getElementById('deck-card-name').value,
+            flash_card_deck_name: deckName.value,
             field_of_study_id: props.location.pathname.split('/')[2]
         };
         props.postUserDecks(payload);
@@ -19,7 +20,7 @@ const AddDeck = props => {
     return (
         <div className='field has-addons'>
             <p className='deck-add-text'>
-                <input type="text" className='input' placeholder='Deck Name' id='deck-card-name'/>
+                <input type="text" className='input' ref={input=>deckName=input} placeholder='Deck Name' id='deck-card-name'/>
             </p>
             <p className='add-deck-contols'>
                 <input className='button is-outlined is-primary' type="button" value="Add" onClick={addDeck}/>
