@@ -5,12 +5,18 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 
 const CreateAccountForm = props => {
+    var create = {
+        firstname: null,
+        lastname: null,
+        email: null,
+        password: null
+    };
     function createAccount() {
         const payload = {
-                first_name: document.getElementById('first-name').value,
-                last_name: document.getElementById('last-name').value,
-                email: document.getElementById('email').value,
-                hashed_password: document.getElementById('password').value
+            first_name: create.firstname.value,
+            last_name: create.lastname.value,
+            email: create.email.value,
+            hashed_password: create.password.value
         };
         props.createAccount(payload);
     }
@@ -23,10 +29,18 @@ const CreateAccountForm = props => {
     } else {
         return (
             <div id='create-account-form'>
-                <input id='first-name' className='create-user-form-text input is-info login-text ' type="text" placeholder='First Name'/>
-                <input id='last-name' className='create-user-form-text input is-info login-text' type="text" placeholder='Last Name'/>
-                <input id='email' className='create-user-form-text input is-info login-text' type="email" placeholder='Email'/>
-                <input id='password' className='create-user-form-text input is-info login-text' type="password" placeholder='Password'/>
+                <input className='create-user-form-text input is-info login-text' id='first-name' ref={input => {
+                    create.firstname = input
+                }} type="text" placeholder='First Name'/>
+                <input className='create-user-form-text input is-info login-text' id='last-name' ref={input => {
+                    create.lastname = input
+                }} type="text" placeholder='Last Name'/>
+                <input className='create-user-form-text input is-info login-text' id='email' ref={input => {
+                    create.email = input
+                }} type="email" placeholder='Email'/>
+                <input className='create-user-form-text input is-info login-text' id='password' ref={input => {
+                    create.password = input
+                }} type="password" placeholder='Password'/>
                 <input type="button" value="Create Account" className='button is-medium is-primary' onClick={createAccount}/>
             </div>
         )
@@ -34,9 +48,9 @@ const CreateAccountForm = props => {
 }
 
 function mapStateToProps(state) {
-return state;
+    return state;
 }
 
 export default connect(mapStateToProps, {
-...userActions
+    ...userActions
 })(CreateAccountForm);

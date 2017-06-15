@@ -5,10 +5,12 @@ import * as flashCards from '../../actions/profile-actions';
 import * as traverse from '../../actions/traversing-actions';
 
 const AddCategory = props => {
+    var category = null
     function createCategory() {
+        console.log(category.value);
         var payload = {
             user_id: sessionStorage.getItem('user'),
-            field_name: document.getElementById('category-field-name').value,
+            field_name: category.value,
             description: ''
         };
         props.addCategory(payload);
@@ -18,7 +20,7 @@ const AddCategory = props => {
     return (
         <div id='add-category-container' className='field has-addons'>
             <p className='control'>
-                <input type="text" placeholder='Subject' className='input' id='category-field-name'/>
+                <input type="text" placeholder='Subject' ref={(input) =>{category=input}} className='input' id='category-field-name'/>
             </p>
             <p className='control' id='edit-button-categories'>
                 <input type="button" value='Add'className='button is-primary is-outlined' onClick={createCategory}/>
