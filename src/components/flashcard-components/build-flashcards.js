@@ -7,12 +7,14 @@ import FaEdit from 'react-icons/lib/fa/edit';
 
 const BuildFlashCards = props => {
     function editFlashcard({target}) {
-        var answer = document.getElementById('flashcard-answer').innerText.split('').slice(0,document.getElementById('flashcard-answer').innerText.split('').length-3).join('')
+        var currentFlash = props.flashcards.data.filter(el=>{
+            return el.flash_card_id == target.name;
+        });
         props.editFlashcardTraverse({
             editFlashcard: !props.traverse.flashcards.edit.editFlashcard,
             flashcarID: target.name,
-            question: document.getElementById('flashcard-question').innerText,
-            answer: answer
+            question: currentFlash[0].question,
+            answer: currentFlash[0].answer
         });
     }
     function buildFlashcards() {

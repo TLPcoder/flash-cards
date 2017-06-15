@@ -1,6 +1,5 @@
 'use strict';
 import * as types from '../actions/action-types-traverse';
-
 var initialState = {
     decks: {
         edit: {
