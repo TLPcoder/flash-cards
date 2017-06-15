@@ -6,10 +6,12 @@ import axios from 'axios';
 import 'bulma/css/bulma.css';
 
 const LoginForm = props => {
+    var email;
+    var password;
     function checkLogin() {
         var payload = {
-            email: document.getElementById('email-login').value,
-            hashed_password: document.getElementById('password-login').value
+            email: email.value,
+            hashed_password: password.value
         };
         props.loginUser(payload);
     }
@@ -22,9 +24,11 @@ const LoginForm = props => {
     return (
         <div id='flex-login'>
             <div id='loginForm-container'>
-                <input id='email-login' className='input is-info login-text' type="text" placeholder='email'/>
+                <input id='email-login' ref={e => {
+                    email = e
+                }} className='input is-info login-text' type="text" placeholder='email'/>
                 <br/>
-                <input id='password-login' className='input is-info login-text' type="password" placeholder='password'/>
+                <input id='password-login' ref={p => password = p} className='input is-info login-text' type="password" placeholder='password'/>
                 <br/>
                 <input type="button" value='Login' className='button is-medium is-primary' onClick={checkLogin}/>
             </div>
