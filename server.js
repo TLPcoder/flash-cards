@@ -18,6 +18,9 @@ app.use(function(req, res, next) {
         next();
     }
 });
+app.get('/', function(_, res) {
+    res.sendFile(indexPath);
+});
 
 app.get('/hello', (req,res)=> {
     res.json('hello world');
@@ -29,9 +32,6 @@ app.use(bodyParser.json());
 app.use('/flashcards', flashCards);
 app.use('/users', users);
 
-app.get('/', function(_, res) {
-    res.sendFile(indexPath);
-});
 app.listen(PORT, function() {
     console.log('port', PORT);
 });
