@@ -101,8 +101,10 @@
         "whatwg-fetch": "1.0.0"
     },
     "scripts": {
-        "start": "node server.js",
-        "build": "node ./scripts/build.js"
+        "start": "concurrently \"node ./scripts/start.js\" \"node server.js\"",
+        "build": "node ./scripts/build.js",
+        "server": "node server.js",
+        "client": "npm start"
     },
     "eslintConfig": {
         "extends": "./config/eslint.js"
