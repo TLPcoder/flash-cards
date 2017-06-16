@@ -6,7 +6,7 @@ const app = express();
 var bodyParser = require('body-parser');
 const flashCards = require('./routes/flashCards');
 const users = require('./routes/users');
-const indexPath = path.join(__dirname, '/src/public/index.html');
+const indexPath = path.join(__dirname, 'index.html');
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
