@@ -18,6 +18,11 @@ app.use(function(req, res, next) {
         next();
     }
 });
+
+app.get('/hello', (req,res)=> {
+    res.json('hello world');
+});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
