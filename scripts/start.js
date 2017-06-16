@@ -1,3 +1,4 @@
+'use strict';
 process.env.NODE_ENV = 'development';
 
 var path = require('path');
