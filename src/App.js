@@ -1,8 +1,7 @@
 'use strict';
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-// import PeopleContainer from './components/PeopleContainer';
+import './public/App.css';
 import LoginPage from './components/login-components/login-page';
 import CreateAccount from './components/create-account-components/create-account';
 import Profile from './components/category-components/profile';
