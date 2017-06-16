@@ -2,8 +2,7 @@
     "name": "create-react-app-with-redux",
     "version": "0.0.1",
     "private": true,
-    "devDependencies": {
-    },
+    "devDependencies": {},
     "dependencies": {
         "concurrently": "^3.4.0",
         "axios": "^0.16.1",
