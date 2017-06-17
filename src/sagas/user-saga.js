@@ -6,7 +6,7 @@ import * as types from '../actions/action-types';
 export function * login({payload}) {
     const config = {
         method:'POST',
-        url:`https://cyber-flash.herokuapp.com/users/login`,
+        url:`http://localhost:8000/users/login`,
         data: payload
     };
 
@@ -21,7 +21,7 @@ export function * login({payload}) {
 export function * createAccount({payload}){
     const config = {
         method:'POST',
-        url:'https://cyber-flash.herokuapp.com/users/create-user',
+        url:'http://localhost:8000/users/create-user',
         data: payload
     };
     try{

@@ -48,7 +48,7 @@ export function * getFlashcards({payload}) {
 export function * deleteCategory({payload}) {
     const config = {
         method:'DELETE',
-        url:'https://cyber-flash.herokuapp.com/flashcards/delete_category/',
+        url:'http://localhost:8000/flashcards/delete_category/',
         data: payload
     };
     try {
@@ -62,7 +62,7 @@ export function * deleteCategory({payload}) {
 export function * addCategory({payload}) {
     const config = {
         method:'POST',
-        url:`https://cyber-flash.herokuapp.com/flashcards/create_category`,
+        url:`http://localhost:8000/flashcards/create_category`,
         data: payload
     };
     try {
@@ -75,7 +75,7 @@ export function * addCategory({payload}) {
 export function * editCategory({payload}) {
     const config = {
         method:'PUT',
-        url:`https://cyber-flash.herokuapp.com/flashcards/edit_category`,
+        url:`http://localhost:8000/flashcards/edit_category`,
         data: payload
     };
     try {
@@ -89,7 +89,7 @@ export function * editCategory({payload}) {
 export function * deleteDeck({payload}) {
     const config = {
         method:'DELETE',
-        url:`https://cyber-flash.herokuapp.com/flashcards/delete_flash_card_deck`,
+        url:`http://localhost:8000/flashcards/delete_flash_card_deck`,
         data: payload
     };
     try {
@@ -103,7 +103,7 @@ export function * deleteDeck({payload}) {
 export function * addDeck({payload}) {
     const config = {
         method:'POST',
-        url: 'https://cyber-flash.herokuapp.com/flashcards/create_flash_card_deck',
+        url: 'http://localhost:8000/flashcards/create_flash_card_deck',
         data: payload
     };
     try {
@@ -132,7 +132,7 @@ export function * editDeck({payload}) {
 export function * addFlashcard({payload}) {
     const config = {
         method:'POST',
-        url:'https://cyber-flash.herokuapp.com/flashcards/create_flash_card',
+        url:'http://localhost:8000/flashcards/create_flash_card',
         data: payload
     };
     try {
@@ -145,7 +145,7 @@ export function * addFlashcard({payload}) {
 export function * editFlashcard({payload}) {
     const config = {
         method:'PUT',
-        url:'https://cyber-flash.herokuapp.com/flashcards/edit_flash_card',
+        url:'http://localhost:8000/flashcards/edit_flash_card',
         data: payload
     };
     try {
@@ -158,7 +158,7 @@ export function * editFlashcard({payload}) {
 export function * deleteFlashcard({payload}) {
     const config = {
         method:'PUT',
-        url:'https://cyber-flash.herokuapp.com/flashcards/delete_flash_card',
+        url:'http://localhost:8000/flashcards/delete_flash_card',
         data: payload
     };
     try {
