@@ -11,7 +11,7 @@ class Main extends Component {
     componentWillMount(){
         if(this.props.users.user){
             var data = sessionStorage.getItem('user');
-            this.props.getUserCategories(`http://localhost:8000/flashcards/field_of_study/${data}`);
+            this.props.getUserCategories(`https://cyber-flash-backend.herokuapp.com/flashcards/field_of_study/${data}`);
         }else{
             this.props.router.history.push('/');
         }

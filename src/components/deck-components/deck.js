@@ -9,7 +9,7 @@ export class Deck extends Component {
         super(props);
     }
     componentWillMount() {
-        this.props.getUserDecks(`http://localhost:8000/flashcards/flash_card_deck/${this.props.location.pathname.split('/')[2]}`);
+        this.props.getUserDecks(`https://cyber-flash-backend.herokuapp.com/flashcards/flash_card_deck/${this.props.location.pathname.split('/')[2]}`);
     }
 
     deleteDeck = (event) => {

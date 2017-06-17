@@ -9,7 +9,7 @@ export class FlashCardsMain extends Component {
         super(props);
     }
     componentWillMount = () => {
-        this.props.getFlashCards(`http://localhost:8000/flashcards/flash_card_cards/${this.props.location.pathname.split('/')[2]}`);
+        this.props.getFlashCards(`https://cyber-flash-backend.herokuapp.com/flashcards/flash_card_cards/${this.props.location.pathname.split('/')[2]}`);
     }
     deleteFlashCard = (event) => {
         const payload = {
