@@ -8,13 +8,9 @@ const EditDeck = props => {
     var deckName;
     function updateDeck() {
         const payload = {
-            method: 'PUT',
-            url: 'http://localhost:8000/flashcards/edit_flash_card_deck',
-            body: {
                 flash_card_deck_name: deckName.value,
                 flash_card_deck_id: props.traverse.decks.edit.deckID,
                 field_of_study_id: props.edit.router.location.pathname.split('/')[2]
-            }
         };
         props.putUserDecks(payload);
         props.editDeckTraverse({

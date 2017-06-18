@@ -11,7 +11,29 @@ import Study from '../study-components/study';
 import NavBar from '../nav-bar';
 
 const FlashCards = props => {
-    if (props.flashcards.length === 0 && props.traverse.flashcards.add) {
+    if (props.traverse.flashcards.loading){
+        return (
+            <div>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Flashcards</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h1>Loading...</h1>
+                </div>
+            </div>
+        )
+    }else if (props.flashcards.length === 0 && props.traverse.flashcards.add) {
         return (
             <div>
                 <div id="background-image"></div>

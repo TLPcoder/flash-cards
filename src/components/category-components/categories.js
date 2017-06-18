@@ -13,7 +13,30 @@ const Categories = props => {
         var user = sessionStorage.getItem('user');
         props.deleteCategory({field_of_study_id: target.name, user_id: user});
     }
-    if (props.state.categories.length === 0 && !props.state.traverse.categories.add) {
+    console.log('category props', props);
+    if(props.state.traverse.categories.loading === true){
+        return (
+            <div>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Subjects</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='center-catergory background-color'>
+                    <h1>Loading...</h1>
+                </div>
+            </div>
+        )
+    }else if (props.state.categories.length === 0 && !props.state.traverse.categories.add) {
         return (
             <div>
                 <div id="background-image"></div>

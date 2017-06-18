@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as profileActions from '../../actions/profile-actions';
+import * as traverse from '../../actions/traversing-actions';
 import Categories from './categories';
 
 class Main extends Component {
@@ -30,5 +31,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-    ...profileActions
+    ...profileActions,
+    ...traverse
 })(Main)

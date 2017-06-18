@@ -2,6 +2,7 @@
 import {put, call} from 'redux-saga/effects';
 import axios from 'axios';
 import * as types from '../actions/action-types';
+import * as typesTraverse from '../actions/action-types-traverse';
 
 export function * getCategories({payload}) {
     const config = {
@@ -10,8 +11,10 @@ export function * getCategories({payload}) {
     };
 
     try {
+        yield put({type:typesTraverse.LOADING_CATEGORIES, payload:true});
         const data = yield call(axios, config);
         yield put({type: types.GET_CATEGORIES_SUCCESS, data});
+        yield put({type:typesTraverse.LOADING_CATEGORIES, payload:false});
     } catch (error) {
         yield put({type: types.GET_CATEGORIES_FAIL, error});
     }
@@ -24,8 +27,10 @@ export function * getDecks({payload}) {
     };
 
     try {
+        yield put({type:typesTraverse.LOADING_DECKS, payload:true});
         const data = yield call(axios, config);
         yield put({type: types.GET_DECKS_SUCCESS, data});
+        yield put({type:typesTraverse.LOADING_DECKS, payload:false});
     } catch (error) {
         yield put({type: types.GET_DECKS_FAIL, error});
     }
@@ -38,8 +43,10 @@ export function * getFlashcards({payload}) {
     };
 
     try {
+        yield put({type:typesTraverse.LOADING_FLASHCARDS, payload:true});
         const data = yield call(axios, config);
         yield put({type: types.GET_FLASHCARDS_SUCCESS, data});
+        yield put({type:typesTraverse.LOADING_FLASHCARDS, payload:false});
     } catch (error) {
         yield put({type: types.GET_FLASHCARDS_FAIL, error});
     }
@@ -66,8 +73,10 @@ export function * addCategory({payload}) {
         data: payload
     };
     try {
+        yield put({type:typesTraverse.LOADING_CATEGORIES, payload:true});
         const data = yield call(axios, config);
         yield put({type: types.ADD_CATEGORY_SUCCESS, data});
+        yield put({type:typesTraverse.LOADING_CATEGORIES, payload:false});
     } catch (error) {
         yield put({type: types.ADD_CATEGORY_FAIL, error});
     }
@@ -107,19 +116,20 @@ export function * addDeck({payload}) {
         data: payload
     };
     try {
+        yield put({type:typesTraverse.LOADING_DECKS, payload:true});
         const data = yield call(axios, config);
         yield put({type: types.ADD_DECK_SUCCESS, data});
+        yield put({type:typesTraverse.LOADING_DECKS, payload:false});
     } catch (error) {
         yield put({type: types.ADD_DECK_FAIL, error});
     }
 }
 
 export function * editDeck({payload}) {
-    const {method, url, body} = payload;
     const config = {
-        method,
-        url,
-        data: body
+        method:'PUT',
+        url:'https://cyber-flash-backend.herokuapp.com/flashcards/edit_flash_card_deck',
+        data: payload
     };
     try {
         const data = yield call(axios, config);
@@ -136,8 +146,10 @@ export function * addFlashcard({payload}) {
         data: payload
     };
     try {
+        yield put({type:typesTraverse.LOADING_FLASHCARDS, payload:true});
         const data = yield call(axios, config);
         yield put({type: types.ADD_FLASHCARD_SUCCESS, data});
+        yield put({type:typesTraverse.LOADING_FLASHCARDS, payload:false});
     } catch (error) {
         yield put({type: types.ADD_FLASHCARD_FAIL, error});
     }

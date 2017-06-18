@@ -9,7 +9,31 @@ import BuildDeck from './build-deck';
 import NavBar from '../nav-bar';
 
 const DeckMain = props => {
-    if (props.decks.length === 0 && props.traverse.decks.add) {
+    if (props.traverse.decks.loading) {
+        return (
+            <div>
+                <div id="background-image"></div>
+                <div className='nav-bar-main'>
+                    <div className='nav'>
+                        <div className='nav-left'></div>
+                        <div className='nav-center'>
+                            <h1 className='title-main'>Deck</h1>
+                        </div>
+                        <div className='nav-right'>
+                            <div className='nav-item'>
+                                <NavBar router={{
+                                    location: props.router.location
+                                }}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='center-deck'>
+                    <h1>loading...</h1>
+                </div>
+            </div>
+        )
+    } else if (props.decks.length === 0 && props.traverse.decks.add) {
         return (
             <div>
                 <div id="background-image"></div>

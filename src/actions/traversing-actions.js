@@ -49,3 +49,22 @@ export const editCategoryTraverse = payload => {
         payload
     };
 };
+export const loadingCategories = payload => {
+    return {
+        type:types.LOADING_CATEGORIES,
+        payload
+    };
+};
+
+export const loadingDecks = payload => {
+    return {
+        type:types.LOADING_DECKS,
+        payload
+    };
+};
+export const loadingFlashcards = payload => {
+    return {
+        type:types.LOADING_FLASHCARDS,
+        payload
+    };
+};
